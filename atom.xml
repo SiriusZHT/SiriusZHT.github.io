@@ -1,0 +1,1799 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://www.siriuszht.info</id>
+    <title>Hi,I am Sirius!</title>
+    <updated>2021-01-21T16:28:44.818Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://www.siriuszht.info"/>
+    <link rel="self" href="https://www.siriuszht.info/atom.xml"/>
+    <subtitle>Coding Changes the World ！</subtitle>
+    <logo>https://www.siriuszht.info/images/avatar.png</logo>
+    <icon>https://www.siriuszht.info/favicon.ico</icon>
+    <rights>All rights reserved 2021, Hi,I am Sirius!</rights>
+    <entry>
+        <title type="html"><![CDATA[LeetCode烹饪手册]]></title>
+        <id>https://www.siriuszht.info/post/leetcode-peng-ren-shou-ce/</id>
+        <link href="https://www.siriuszht.info/post/leetcode-peng-ren-shou-ce/">
+        </link>
+        <updated>2333-01-01T10:03:57.000Z</updated>
+        <content type="html"><![CDATA[<p>啦啦lala</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【LeetCode刷题篇】001.两数之和（JS）]]></title>
+        <id>https://www.siriuszht.info/post/leetcode-shua-ti-pian-001liang-shu-zhi-he-js/</id>
+        <link href="https://www.siriuszht.info/post/leetcode-shua-ti-pian-001liang-shu-zhi-he-js/">
+        </link>
+        <updated>2021-01-21T09:53:55.000Z</updated>
+        <summary type="html"><![CDATA[<p>题目来源：力扣（LeetCode）<br>
+题目链接：<code>https://leetcode-cn.com/problems/</code><br>
+<ul class="markdownIt-TOC">
+<li><a href="#%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE">暴力枚举</a>
+<ul>
+<li><a href="#js">JS</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%BF%E7%94%A8map">使用map</a>
+<ul>
+<li><a href="#js-2">JS</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<blockquote>
+<p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。<br>
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p>
+</blockquote>
+<blockquote>
+<p>Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.<br>
+You may assume that each input would have exactly one solution, and you may not use the same element twice.<br>
+You can return the answer in any order.</p>
+</blockquote>
+<blockquote>
+<p>示例:<br>
+给定 nums = [2, 7, 11, 15], target = 9<br>
+因为 nums[0] + nums[1] = 2 + 7 = 9<br>
+所以返回 [0, 1]</p>
+</blockquote>
+<h1 id="暴力枚举">暴力枚举</h1>
+<h2 id="js">JS</h2>
+<pre><code class="language-javascript">/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    for(let i = 0; i &lt; nums.length; i++){
+        for(let j = i + 1; j &lt; nums.length; j++){
+            if(nums[i] + nums[j] === target){
+                return [i, j];
+            }else{
+                continue;
+            }
+        }
+    }
+};
+</code></pre>
+<h1 id="使用map">使用map</h1>
+<h2 id="js-2">JS</h2>
+<ul>
+<li>思路</li>
+</ul>
+<ol>
+<li>创建一个map</li>
+<li>for循环遍历nums数组</li>
+<li>用target减去nums的每一项nums[i]，<br>
+为了计算哪一项要跟当前数字相加得到target</li>
+<li>检查map有没有这个数，有则返回结果，<br>
+没有就把num[i]当作key<br>
+i当作value放入map中</li>
+</ol>
+<pre><code class="language-cpp">var twoSum = function(nums,target){
+	const map = new Map();
+	for(let i = 0; i &lt; nums.length; i++){
+		const complement = target - nums[i];
+		if(map.has(complement)){
+			return [map.get(complement),i];
+		}else{
+			map.set(nums[i],i);
+		}
+	}
+	return [];
+}
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<p>题目来源：力扣（LeetCode）<br>
+题目链接：<code>https://leetcode-cn.com/problems/</code><br>
+<ul class="markdownIt-TOC">
+<li><a href="#%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE">暴力枚举</a>
+<ul>
+<li><a href="#js">JS</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%BF%E7%94%A8map">使用map</a>
+<ul>
+<li><a href="#js-2">JS</a></li>
+</ul>
+</li>
+</ul>
+</p>
+<blockquote>
+<p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。<br>
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p>
+</blockquote>
+<blockquote>
+<p>Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.<br>
+You may assume that each input would have exactly one solution, and you may not use the same element twice.<br>
+You can return the answer in any order.</p>
+</blockquote>
+<blockquote>
+<p>示例:<br>
+给定 nums = [2, 7, 11, 15], target = 9<br>
+因为 nums[0] + nums[1] = 2 + 7 = 9<br>
+所以返回 [0, 1]</p>
+</blockquote>
+<h1 id="暴力枚举">暴力枚举</h1>
+<h2 id="js">JS</h2>
+<pre><code class="language-javascript">/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    for(let i = 0; i &lt; nums.length; i++){
+        for(let j = i + 1; j &lt; nums.length; j++){
+            if(nums[i] + nums[j] === target){
+                return [i, j];
+            }else{
+                continue;
+            }
+        }
+    }
+};
+</code></pre>
+<h1 id="使用map">使用map</h1>
+<h2 id="js-2">JS</h2>
+<ul>
+<li>思路</li>
+</ul>
+<ol>
+<li>创建一个map</li>
+<li>for循环遍历nums数组</li>
+<li>用target减去nums的每一项nums[i]，<br>
+为了计算哪一项要跟当前数字相加得到target</li>
+<li>检查map有没有这个数，有则返回结果，<br>
+没有就把num[i]当作key<br>
+i当作value放入map中</li>
+</ol>
+<pre><code class="language-cpp">var twoSum = function(nums,target){
+	const map = new Map();
+	for(let i = 0; i &lt; nums.length; i++){
+		const complement = target - nums[i];
+		if(map.has(complement)){
+			return [map.get(complement),i];
+		}else{
+			map.set(nums[i],i);
+		}
+	}
+	return [];
+}
+</code></pre>
+<!-- more -->
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【JavaScript】ES6-Generator函数]]></title>
+        <id>https://www.siriuszht.info/post/javascript-es6-generator-han-shu/</id>
+        <link href="https://www.siriuszht.info/post/javascript-es6-generator-han-shu/">
+        </link>
+        <updated>2021-01-16T09:26:19.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="一-什么是generator-函数">一、什么是Generator 函数</h2>
+<h3 id="11-语法">1.1 语法</h3>
+<blockquote>
+<p>学习 <code>Generator</code> 语法，你需要了解<code>function*</code> 、<code>yield</code>、<code>next</code>三个基本概念。</p>
+</blockquote>
+<ul>
+<li><code>function*</code> 用来声明一个函数是生成器函数，它比普通的函数声明多了一个<code>*</code>,<code>*</code>的位置比较随意可以挨着 <code>function</code> 关键字，也可以挨着函数名</li>
+<li><code>yield</code> 产出的意思，这个关键字只能出现在生成器函数体内，但是生成器中也可以没有<code>yield</code> 关键字，函数遇到 <code>yield</code> 的时候会暂停，并把 <code>yield</code> 后面的表达式结果抛出去</li>
+<li><code>next</code>作用是将代码的控制权交还给生成器函数</li>
+</ul>
+<pre><code class="language-js">// 声明生成器函数
+function* generator() {
+    // A
+    yield 'foo'
+    // B
+}
+// 获取生成器对象
+let g = generator();
+// 第一个 next()，首次启动生成器
+g.next(); // {value: &quot;foo&quot;, done: false}
+// 唤醒被 yield 暂停的状态
+g.next();
+// {value: undefined, done: true}
+</code></pre>
+<h3 id="12-过程分析">1.2 过程分析</h3>
+<pre><code class="language-js">// 分析一个简单例子
+function* helloGenerator() {
+   yield &quot;hello&quot;;
+   yield &quot;generator&quot;;
+   return;
+}
+
+var h = helloGenerator();
+
+console.log(h.next());//{ value: 'hello', done: false }
+console.log(h.next());//{ value: 'generator', done: false }
+console.log(h.next());//{ value: 'undefined', done: true }
+</code></pre>
+<ul>
+<li>创建了<code>h</code>对象，指向<code>helloGenerator</code>的句柄</li>
+<li>第一次调用<code>next()</code>，执行到<code>&quot;yield hello&quot;</code>，暂缓执行,并返回了<code>&quot;hello&quot;</code></li>
+<li>第二次调用<code>next()</code>，继续上一次的执行，执行到<code>&quot;yield generator&quot;</code>,暂缓执行，并返回了<code>&quot;generator&quot;</code>。</li>
+<li>第三次调用<code>next()</code>,直接执行<code>return</code>，并返回<code>done:true</code>，表明结束</li>
+</ul>
+<blockquote>
+<p>经过上面的分析，<code>yield</code>实际就是暂缓执行的标示，每执行一次<code>next()</code>，相当于指针移动到下一个<code>yield</code>位置</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/img_convert/b353767950ca17c65dd80f7ce78c6651.png" alt="" loading="lazy"></figure>
+<p><strong>总结一下</strong>，<code>Generator</code>函数是<code>ES6</code>提供的一种异步编程解决方案。通过<code>yield</code>标识位和<code>next()</code>方法调用，实现函数的分段执行</p>
+<h3 id="13-yield-表达式">1.3 yield 表达式</h3>
+<blockquote>
+<p><code>yield</code>是<code>Generator</code>函数的暂缓执行的标识，对于<code>yield</code>只能配合<code>Generator</code>函数使用，在普通的函数中使用会报错</p>
+</blockquote>
+<p><code>Generator</code>函数中还有一种<code>yield*</code>这个表达方式</p>
+<pre><code class="language-js">function* foo(){
+   	yield &quot;a&quot;;
+   	yield &quot;b&quot;;
+   }
+   function* gen(x,y){
+   	  yield 1;
+   	  yield 2;
+   	  yield* foo();
+   	  yield 3;
+   }
+   var g = gen();
+   console.log(g.next());//{value: 1, done: false}
+   console.log(g.next());//{value: 2, done: false}
+   console.log(g.next());//{value: &quot;a&quot;, done: true}
+   console.log(g.next());//{value: &quot;b&quot;, done: true}
+   console.log(g.next());//{value: &quot;3&quot;, done: true
+}
+</code></pre>
+<blockquote>
+<p>当执行<code>yield*</code>时，实际是遍历后面的<code>Generator</code>函数，等价于下面的写法：</p>
+</blockquote>
+<pre><code class="language-js">
+function* foo(){
+   	yield &quot;a&quot;;
+   	yield &quot;b&quot;;
+}
+function* gen(x,y){
+    yield 1;
+    yield 2;
+    
+    for(var value of foo()){
+      yield value;
+    }
+    
+    yield 3;
+}
+</code></pre>
+<p><strong>注意</strong>：<code>yield</code> 后面只能适配<code>Generator</code>函数</p>
+<h2 id="二-generator应用场景">二、Generator应用场景</h2>
+<h3 id="21-异步操作的同步化表达">2.1 异步操作的同步化表达</h3>
+<blockquote>
+<p><code>Generator</code>函数的暂停执行的效果，意味着可以把异步操作写在<code>yield</code>表达式里面，等到调用<code>next</code>方法时再往后执行。这实际上等同于不需要写回调函数了，因为异步操作的后续操作可以放在<code>yield</code>表达式下面，反正要等到调用<code>next</code>方法时再执行。所以，<code>Generator</code>函数的一个重要实际意义就是用来处理异步操作，改写回调函数</p>
+</blockquote>
+<pre><code class="language-js">function* loadUI() {
+  showLoadingScreen();
+  yield loadUIDataAsynchronously();
+  hideLoadingScreen();
+}
+var loader = loadUI();
+// 加载UI
+loader.next()
+
+// 卸载UI
+loader.next()
+</code></pre>
+<blockquote>
+<p>上面代码中，第一次调用<code>loadUI</code>函数时，该函数不会执行，仅返回一个遍历器。下一次对该遍历器调用<code>next</code>方法，则会显示<code>Loading</code>界面，并且异步加载数据。等到数据加载完成，再一次使用next方法，则会隐藏<code>Loading</code>界面。可以看到，这种写法的好处是所有<code>Loading</code>界面的逻辑，都被封装在一个函数，按部就班非常清晰</p>
+</blockquote>
+<ul>
+<li>通过<code>Generator</code>函数部署<code>Ajax</code>操作，可以用同步的方式表达。</li>
+</ul>
+<pre><code class="language-js">function* main() {
+  var result = yield request(&quot;http://some.url&quot;);
+  var resp = JSON.parse(result);
+    console.log(resp.value);
+}
+
+function request(url) {
+  makeAjaxCall(url, function(response){
+    it.next(response);
+  });
+}
+
+var it = main();
+it.next();
+</code></pre>
+<h3 id="22-控制流管理">2.2 控制流管理</h3>
+<pre><code class="language-js">// 异步函数
+
+function getDataAsync (url) {
+    return new Promise((resolve, reject) =&gt; {
+        setTimeout(() =&gt; {
+            var res = {
+                url: url,
+                data: Math.random()
+            }
+            resolve(res)
+        }, 1000)
+    })
+}
+</code></pre>
+<blockquote>
+<p>使用 <code>Generator</code> 函数可以这样写</p>
+</blockquote>
+<pre><code class="language-js">function * getData () {
+    var res1 = yield getDataAsync('/page/1?param=123')
+    console.log(res1)
+    var res2 = yield getDataAsync(`/page/2?param=${res1.data}`)
+    console.log(res2)
+    var res3 = yield getDataAsync(`/page/2?param=${res2.data}`)
+    console.log(res3))
+}
+</code></pre>
+<blockquote>
+<p>然后我们这样逐步执行</p>
+</blockquote>
+<pre><code class="language-js">var g = getData()
+g.next().value.then(res1 =&gt; {
+    g.next(res1).value.then(res2 =&gt; {
+        g.next(res2).value.then(() =&gt; {
+            g.next()
+        })
+    })
+})
+</code></pre>
+<blockquote>
+<p>上面的代码，我们逐步调用遍历器的 <code>next()</code>方法，由于每一个 <code>next()</code> 方法返回值的 <code>value</code> 属性为一个 <code>Promise</code> 对象，所以我们为其添加 <code>then</code>方法， 在 <code>then</code> 方法里面接着运行 <code>next</code> 方法挪移遍历器指针，直到 <code>Generator</code> 函数运行完成，实际上，这个过程我们不必手动完成，可以封装成一个简单的执行器</p>
+</blockquote>
+<pre><code class="language-js">function run (gen) {
+    var g = gen()
+
+    function next (data) {
+        var res = g.next(data)
+        if (res.done) return res.value
+        res.value.then((data) =&gt; {
+            next(data)
+        })
+    }
+    next()
+}
+</code></pre>
+<blockquote>
+<p><code>run</code>方法用来自动运行异步的 <code>Generator</code> 函数，其实就是一个递归的过程调用的过程。这样我们就不必手动执行 <code>Generator</code> 函数了。 有了 <code>run</code> 方法，我们只需要这样运行 <code>getData</code> 方法</p>
+</blockquote>
+<pre><code>run(getData)
+</code></pre>
+<blockquote>
+<p>这样，我们就可以把异步操作封装到 <code>Generator</code> 函数内部，使用 <code>run</code>方法作为 <code>Generator</code> 函数的自执行器，来处理异步。其实我们不难发现， <code>async/await</code> 方法相比于 <code>Generator</code> 处理异步的方式，有很多相似的地方，只不过 async/await 在语义化方面更加明显，同时 <code>async/await</code> 不需要我们手写执行器，其内部已经帮我们封装好了，这就是为什么说 <code>async/await</code>是 <code>Generator</code>函数处理异步的语法糖了</p>
+</blockquote>
+<h3 id="23-部署-iterator-接口">2.3 部署 Iterator 接口</h3>
+<blockquote>
+<p>利用 <code>Generator</code> 函数，可以在任意对象上部署 <code>Iterator</code> 接口。</p>
+</blockquote>
+<pre><code class="language-js">function* iterEntries(obj) {
+  let keys = Object.keys(obj);
+  for (let i=0; i &lt; keys.length; i++) {
+    let key = keys[i];
+    yield [key, obj[key]];
+  }
+}
+
+let myObj = { foo: 3, bar: 7 };
+
+for (let [key, value] of iterEntries(myObj)) {
+  console.log(key, value);
+}
+
+// foo 3
+// bar 7
+</code></pre>
+<blockquote>
+<p>上述代码中，<code>myObj</code>是一个普通对象，通过<code>iterEntries</code>函数，就有了 <code>Iterator</code> 接口。也就是说，可以在任意对象上部署<code>next</code>方法</p>
+</blockquote>
+<pre><code class="language-js">// 下面是一个对数组部署 Iterator 接口的例子，尽管数组原生具有这个接口
+
+function* makeSimpleGenerator(array){
+  var nextIndex = 0;
+
+  while(nextIndex &lt; array.length){
+    yield array[nextIndex++];
+  }
+}
+
+var gen = makeSimpleGenerator(['yo', 'ya']);
+
+gen.next().value // 'yo'
+gen.next().value // 'ya'
+gen.next().done  // true
+</code></pre>
+<h2 id="三-更多参考">三、更多参考</h2>
+<ul>
+<li><a href="http://es6.ruanyifeng.com/#docs/generator">ryf教程-generator</a></li>
+<li>FE- interview</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【JavaScript】DOM编程学习总结篇]]></title>
+        <id>https://www.siriuszht.info/post/javascript-dom-bian-cheng-xue-xi-zong-jie-pian/</id>
+        <link href="https://www.siriuszht.info/post/javascript-dom-bian-cheng-xue-xi-zong-jie-pian/">
+        </link>
+        <updated>2021-01-16T09:00:55.000Z</updated>
+        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E4%BB%8B%E7%BB%8D">一、基本类型介绍</a>
+<ul>
+<li><a href="#1node%E7%B1%BB%E5%9E%8B">1.Node类型</a></li>
+<li><a href="#2element%E7%B1%BB%E5%9E%8B">2.Element类型</a></li>
+<li><a href="#3text%E7%B1%BB%E5%9E%8B">3.Text类型</a></li>
+<li><a href="#4attr%E7%B1%BB%E5%9E%8B">4.Attr类型</a></li>
+<li><a href="#5comment%E7%B1%BB%E5%9E%8B">5.Comment类型</a></li>
+<li><a href="#6document">6.Document</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-dom%E6%8F%90%E4%BE%9B%E7%9A%84%E5%87%A0%E4%B8%AA%E5%B1%9E%E6%80%A7">二、 DOM提供的几个属性</a>
+<ul>
+<li><a href="#1childnodes%E5%B1%9E%E6%80%A7">1.childNodes属性</a></li>
+<li><a href="#2nodetype%E5%B1%9E%E6%80%A7">2.nodeType属性</a></li>
+<li><a href="#3nodevalue%E5%B1%9E%E6%80%A7">3.nodeValue属性</a></li>
+<li><a href="#4firstchild%E5%92%8Clastchild%E5%B1%9E%E6%80%A7">4.firstChild和lastChild属性</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E8%8A%82%E7%82%B9%E5%88%9B%E5%BB%BA%E5%9E%8Bapi">三、节点创建型API</a>
+<ul>
+<li><a href="#1createelement">1.createElement</a></li>
+<li><a href="#2createtextnode">2.createTextNode</a></li>
+<li><a href="#3clonenode">3.cloneNode</a></li>
+<li><a href="#4createdocumentfragment">4.createDocumentFragment</a></li>
+<li><a href="#5%E5%88%9B%E5%BB%BA%E5%9E%8Bapi%E6%80%BB%E7%BB%93">5.创建型API总结</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B-%E9%A1%B5%E9%9D%A2%E4%BF%AE%E6%94%B9%E5%9E%8Bapi">四、页面修改型API</a>
+<ul>
+<li><a href="#1appendchild">1.appendChild</a></li>
+<li><a href="#2insertbefore">2.insertBefore</a></li>
+<li><a href="#3removechild">3.removeChild</a></li>
+<li><a href="#4replacechild">4.replaceChild</a></li>
+<li><a href="#5%E9%A1%B5%E9%9D%A2%E4%BF%AE%E6%94%B9%E5%9E%8Bapi%E6%80%BB%E7%BB%93">5.页面修改型API总结</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94-%E8%8A%82%E7%82%B9%E6%9F%A5%E8%AF%A2%E5%9E%8Bapi">五、节点查询型API</a>
+<ul>
+<li><a href="#1documentgetelementbyid">1.document.getElementById</a></li>
+<li><a href="#2documentgetelementsbytagname">2.document.getElementsByTagName</a></li>
+<li><a href="#3documentgetelementsbyname">3.document.getElementsByName</a></li>
+<li><a href="#4documentgetelementsbyclassname">4.document.getElementsByClassName</a></li>
+<li><a href="#5documentqueryselector%E5%92%8Cdocumentqueryselectorall">5.document.querySelector和document.querySelectorAll</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%AD-%E8%8A%82%E7%82%B9%E5%85%B3%E7%B3%BB%E5%9E%8Bapi">六、节点关系型API</a>
+<ul>
+<li><a href="#1%E7%88%B6%E5%85%B3%E7%B3%BB%E6%80%A7api">1.父关系性API</a></li>
+<li><a href="#2%E5%85%84%E5%BC%9F%E5%85%B3%E7%B3%BB%E5%9E%8Bapi">2.兄弟关系型API</a></li>
+<li><a href="#63-%E5%AD%90%E5%85%B3%E7%B3%BB%E5%9E%8Bapi">## 6.3 子关系型API</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%83-%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7%E5%9E%8B">七、元素属性型</a>
+<ul>
+<li><a href="#1setattribute">1.setAttribute</a></li>
+<li><a href="#2getattribute">2.getAttribute</a></li>
+</ul>
+</li>
+<li><a href="#%E8%A1%A8%E6%A0%BC">表格</a></li>
+<li><a href="#%E6%A0%B7%E5%BC%8F%E6%93%8D%E4%BD%9C">样式操作</a></li>
+<li><a href="#%E5%A4%A7%E5%B0%8F%E5%92%8C%E4%BE%BF%E5%AE%9C">大小和便宜</a></li>
+</ul>
+</p>
+<h1 id="一-基本类型介绍">一、基本类型介绍</h1>
+<h2 id="1node类型">1.Node类型</h2>
+<hr>
+<ul>
+<li>所有DOM节点继承该类型，<code>Node</code>有一个属性<code>nodeType</code>表示<code>Node</code>的类型，它是一个整数，其数值分别表示相应的<code>Node</code>类型</li>
+<li>这些<code>Node</code>类型中，我们最常用的就是<code>element</code>，<code>text</code>，<code>attribute</code>，<code>comment</code>，<code>document</code>，<code>document_fragment</code>这几种类型</li>
+</ul>
+<h2 id="2element类型">2.Element类型</h2>
+<hr>
+<ul>
+<li>
+<p><code>Element</code>提供了对元素标签名，子节点和特性的访问，我们常用<code>HTML</code>元素比如<code>div</code>，<code>span</code>，<code>a</code>等标签就是<code>element</code>中的一种。</p>
+</li>
+<li>
+<p><strong><code>Element</code>有下面几条特性：</strong></p>
+<ul>
+<li><code>nodeType</code>为<code>1</code></li>
+<li><code>nodeName</code>为元素标签名，<code>tagName</code>也是返回标签名</li>
+<li><code>nodeValue</code>为<code>null</code></li>
+<li><code>parentNode</code>可能是<code>Document</code>或<code>Element</code></li>
+<li>子节点可能是 <code>Element</code>，<code>Text</code>，<code>Comment</code>，<code>Processing_Instruction</code>，<code>CDATASection</code> 或 <code>EntityReference</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="3text类型">3.Text类型</h2>
+<hr>
+<ul>
+<li><code>Text</code>表示文本节点，它包含的是纯文本内容，不能包含<code>html</code>代码，但可以包含转义后的<code>html</code>代码。<code>Text</code>有下面的特性：
+<ul>
+<li><code>nodeType</code>为<code>3</code></li>
+<li><code>nodeName</code>为<code>#text</code></li>
+<li><code>nodeValue</code>为文本内容</li>
+<li><code>parentNode</code>是一个<code>Element</code></li>
+<li>没有子节点</li>
+</ul>
+</li>
+</ul>
+<h2 id="4attr类型">4.Attr类型</h2>
+<hr>
+<ul>
+<li><code>Attr</code>类型表示元素的特性，相当于元素的<code>attributes</code>属性中的节点，它有下面的特性：
+<ul>
+<li><code>nodeType</code>值为2</li>
+<li><code>nodeName</code>是特性的名称</li>
+<li><code>nodeValue</code>是特性的值</li>
+<li><code>parentNode</code>为<code>null</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="5comment类型">5.Comment类型</h2>
+<hr>
+<ul>
+<li><code>Comment</code>表示<code>HTML</code>文档中的注释，它有下面的几种特征：
+<ul>
+<li><code>nodeType</code>为8</li>
+<li><code>nodeName</code>为<code>#comment</code></li>
+<li><code>nodeValue</code>为注释的内容</li>
+<li><code>parentNode</code>可能是<code>Document</code>或<code>Element</code></li>
+<li>没有子节点</li>
+</ul>
+</li>
+</ul>
+<h2 id="6document">6.Document</h2>
+<hr>
+<ul>
+<li><code>Document</code>表示文档，在浏览器中，<code>document</code>对象是<code>HTMLDocument</code>的一个实例，表示整个页面，它同时也是<code>window</code>对象的一个属性。<code>Document</code>有下面的特性：
+<ul>
+<li><code>nodeType</code>为<code>9</code></li>
+<li><code>nodeName</code>为<code>#document</code></li>
+<li><code>nodeValue</code>为 <code>null</code></li>
+<li><code>parentNode</code>为 <code>null</code></li>
+<li>子节点可能是一个<code>DocumentType</code>或<code>Element</code></li>
+</ul>
+</li>
+</ul>
+<p><code>HTML</code>中的节点并不只是包括元素节点，它还包括文本节点，注释节点等等。在这里我们只是简单地说明了几种常见的节点.</p>
+<h1 id="二-dom提供的几个属性">二、 DOM提供的几个属性</h1>
+<h2 id="1childnodes属性">1.childNodes属性</h2>
+<hr>
+<ul>
+<li>在一棵节点树上，<code>childNodes</code>属性可以用来获取任何一个元素的所有子节点，它是一个包含这个元素全部子元素的数组</li>
+</ul>
+<pre><code class="language-javascript">element.childNodes
+</code></pre>
+<h2 id="2nodetype属性">2.nodeType属性</h2>
+<hr>
+<ul>
+<li>节点之间的关系构成了节点层次，<code>html</code> 页面的可以画出一个以<code>html</code>标签为根节点的树形结构<br>
+<code>DOM</code> 会把文档看作是一棵树，同时定义了很多方法来操作这棵数中的每一个元素（节点）</li>
+</ul>
+<pre><code class="language-html">&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p&gt;hello world!!!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>每一个节点都有<code>nodeType</code>属性</li>
+</ul>
+<pre><code class="language-javascript">node.nodeType
+</code></pre>
+<ul>
+<li><code>nodeType</code>属性总共有12中可能取值，但其中仅有3种有实用价值
+<ul>
+<li>元素节点的<code>nodeType</code>属性值是1</li>
+<li>属性节点的<code>nodeType</code>属性值是2</li>
+<li>文本节点的<code>nodeType</code>属性值是3</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-javascript">description.firstChild.nodeValue = text;
+</code></pre>
+<h2 id="3nodevalue属性">3.nodeValue属性</h2>
+<hr>
+<ul>
+<li><code>nodeValue</code>属性
+<ul>
+<li>如果想改变一个文本节点的值，那就使用<code>DOM</code>提供的<code>nodeValue</code>,它用来得到一个节点的值 <code>node.nodeValue</code></li>
+<li>需要注意：<code>nodeValue</code>属性获取对象的值时，得到的并不是包含在这个段落里的文本</li>
+<li>nodeValue属性不仅可以用来检测节点的值，还可以设置节点的值</li>
+</ul>
+</li>
+</ul>
+<h2 id="4firstchild和lastchild属性">4.firstChild和lastChild属性</h2>
+<hr>
+<ul>
+<li>数组元素<code>childNodes[0]</code>有个更直观的同义词。无论如何，只要访问<code>childNodes</code>数组的第一个元素，都可以把它写成<code>firstChild</code></li>
+</ul>
+<pre><code class="language-javascript">node.firstChild
+</code></pre>
+<p>与下面等价</p>
+<pre><code class="language-javascript">node.childNodes[0]
+</code></pre>
+<ul>
+<li><code>DOM</code>还提供了一个与之对应的<code>lastChild</code>属性</li>
+</ul>
+<pre><code class="language-javascript">node.lastChild
+</code></pre>
+<h1 id="三-节点创建型api">三、节点创建型API</h1>
+<h2 id="1createelement">1.createElement</h2>
+<hr>
+<ul>
+<li><code>createElement</code>通过传入指定的一个标签名来创建一个元素，如果传入的标签名是一个未知的，则会创建一个自定义的标签，注意：<code>IE8</code>以下浏览器不支持自定义标签</li>
+</ul>
+<pre><code class="language-javascript">var div = document.createElement(&quot;div&quot;);
+</code></pre>
+<ul>
+<li>使用<code>createElement</code>要注意：通过<code>createElement</code>创建的元素并不属于<code>html</code>文档，它只是创建出来，并未添加到<code>html</code>文档中，要调用<code>appendChild</code>或<code>insertBefore</code>等方法将其添加到<code>HTML</code>文档树中</li>
+</ul>
+<h2 id="2createtextnode">2.createTextNode</h2>
+<hr>
+<ul>
+<li><code>createTextNode</code>用来创建一个文本节点，用法如下</li>
+</ul>
+<pre><code class="language-javascript">var textNode = document.createTextNode(&quot;一个TextNode&quot;);
+</code></pre>
+<ul>
+<li><code>createTextNode</code>接收一个参数，这个参数就是文本节点中的文本，和<code>createElement</code>一样，创建后的文本节点也只是独立的一个节点，同样需要<code>appendChild</code>将其添加到<code>HTML</code>文档树中</li>
+</ul>
+<h2 id="3clonenode">3.cloneNode</h2>
+<hr>
+<ul>
+<li><code>cloneNode</code>是用来返回调用方法的节点的一个副本，它接收一个<code>bool</code>参数，用来表示是否复制子元素，使用如下：</li>
+</ul>
+<pre><code class="language-javascript">var parent = document.getElementById(&quot;parentElement&quot;); 
+var parent2 = parent.cloneNode(true);// 传入true
+parent2.id = &quot;parent2&quot;;
+</code></pre>
+<ul>
+<li>这段代码通过<code>cloneNode</code>复制了一份<code>parent</code>元素，其中<code>cloneNode</code>的参数为<code>true</code>，表示<code>parent</code>的子节点也被复制，如果传入<code>false</code>，则表示只复制了<code>parent</code>节点</li>
+</ul>
+<pre><code class="language-js">&lt;div id=&quot;parent&quot;&gt;
+    我是父元素的文本
+    &lt;br/&gt;
+    &lt;span&gt;
+        我是子元素
+    &lt;/span&gt;
+&lt;/div&gt;
+&lt;button id=&quot;btnCopy&quot;&gt;复制&lt;/button&gt;
+
+var parent = document.getElementById(&quot;parent&quot;);
+document.getElementById(&quot;btnCopy&quot;).onclick = function(){
+	var parent2 = parent.cloneNode(true);
+	parent2.id = &quot;parent2&quot;;
+	document.body.appendChild(parent2);
+}
+</code></pre>
+<ul>
+<li>
+<p>这段代码很简单，主要是绑定<code>button</code>事件，事件内容是复制了一个<code>parent</code>，修改其<code>id</code>，然后添加到文档中</p>
+</li>
+<li>
+<p><strong>这里有几点要注意：</strong></p>
+<ul>
+<li>和<code>createElement</code>一样，<code>cloneNode</code>创建的节点只是游离有<code>html</code>文档外的节点，要调用<code>appendChild</code>方法才能添加到文档树中</li>
+<li>如果复制的元素有<code>id</code>，则其副本同样会包含该<code>id</code>，由于<code>id</code>具有唯一性，所以在复制节点后必须要修改其id</li>
+<li>调用接收的<code>bool</code>参数最好传入，如果不传入该参数，不同浏览器对其默认值的处理可能不同</li>
+</ul>
+</li>
+<li>
+<p>除此之外，我们还有一个需要注意的点：</p>
+<ul>
+<li>如果被复制的节点绑定了事件，则副本也会跟着绑定该事件吗？这里要分情况讨论：
+<ul>
+<li>如果是通过<code>addEventListener</code>或者比如<code>onclick</code>进行绑定事件，则副本节点不会绑定该事件</li>
+<li>如果是内联方式绑定比如</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-html">
+&lt;div onclick=&quot;showParent()&quot;&gt;&lt;/div&gt;
+
+</code></pre>
+<ul>
+<li>这样的话，副本节点同样会触发事件</li>
+</ul>
+<h2 id="4createdocumentfragment">4.createDocumentFragment</h2>
+<hr>
+<ul>
+<li>
+<p>我感觉有点类似虚拟DOM，抽象出来一个内存空间装标签，然后批量进行渲染防止回流次数多影响性能</p>
+</li>
+<li>
+<p><code>createDocumentFragment</code>方法用来创建一个<code>DocumentFragment</code>。在前面我们说到<code>DocumentFragment</code>表示一种轻量级的文档，它的作用主要是存储临时的节点用来准备添加到文档中</p>
+</li>
+<li>
+<p><code>createDocumentFragment</code>方法主要是用于<code>添加大量节点到文档中时会使用到</code>。假设要循环一组数据，然后创建多个节点添加到文档中</p>
+</li>
+</ul>
+<pre><code class="language-javascript">&lt;ul id=&quot;list&quot;&gt;&lt;/ul&gt;
+&lt;input type=&quot;button&quot; value=&quot;添加多项&quot; id=&quot;btnAdd&quot; /&gt;
+
+document.getElementById(&quot;btnAdd&quot;).onclick = function(){
+	var list = document.getElementById(&quot;list&quot;);
+	for(var i = 0;i &lt; 100; i++){
+		var li = document.createElement(&quot;li&quot;);
+		li.textContent = i;
+		list.appendChild(li);
+	}
+}
+</code></pre>
+<ul>
+<li>
+<p>这段代码将按钮绑定了一个事件，这个事件创建了100个<code>li</code>节点，然后依次将其添加<code>HTML</code>文档中。这样做有一个缺点：每次一创建一个新的元素，然后添加到文档树中，这个过程会造成浏览器的回流。所谓回流简单说就是指<code>元素大小和位置会被重新计算</code>，如果添加的元素太多，会造成性能问题。这个时候，就是使用<code>createDocumentFragment了</code></p>
+</li>
+<li>
+<p><code>DocumentFragment</code>不是文档树的一部分，它是保存在内存中的，所以不会造成回流问题。我们修改上面的代码如下</p>
+</li>
+</ul>
+<pre><code class="language-javascript">document.getElementById(&quot;btnAdd&quot;).onclick = function(){
+	var list = document.getElementById(&quot;list&quot;);	
+	var fragment = document.createDocumentFragment();
+
+	for(var i = 0;i &lt; 100; i++){
+	  var li = document.createElement(&quot;li&quot;);
+		li.textContent = i;
+		fragment.appendChild(li);
+	}
+
+	list.appendChild(fragment);
+}
+</code></pre>
+<ul>
+<li>优化后的代码主要是创建了一个<code>fragment</code>，每次生成的<code>li</code>节点先添加到<code>fragment</code>，最后一次性添加到<code>list</code></li>
+</ul>
+<h2 id="5创建型api总结">5.创建型API总结</h2>
+<hr>
+<ul>
+<li>
+<p>创建型<code>api</code>主要包括<code>createElement</code>，<code>createTextNode</code>，<code>cloneNode</code>和<code>createDocumentFragment</code>四个方法，需要注意下面几点：</p>
+<ul>
+<li>它们创建的节点只是一个孤立的节点，要通过<code>appendChild</code>添加到文档中</li>
+<li><code>cloneNode</code>要注意如果被复制的节点是否包含子节点以及事件绑定等问题</li>
+<li>使用<code>createDocumentFragment</code>来解决添加大量节点时的性能问题</li>
+</ul>
+</li>
+</ul>
+<h1 id="四-页面修改型api">四、页面修改型API</h1>
+<hr>
+<ul>
+<li>前面我们提到创建型<code>api</code>，它们只是创建节点，并没有真正修改到页面内容，而是要调用<code>appendChild</code>来将其添加到文档树中。我在这里将这类会修改到页面内容归为一类。<br>
+修改页面内容的<code>api</code>主要包括：<code>appendChild</code>，<code>insertBefore</code>，<code>removeChild</code>，<code>replaceChild</code></li>
+</ul>
+<h2 id="1appendchild">1.appendChild</h2>
+<hr>
+<ul>
+<li><code>appendChild</code>我们在前面已经用到多次，就是将指定的节点添加到调用该方法的节点的子元素的末尾。调用方法如下：</li>
+</ul>
+<pre><code class="language-javascript">parent.appendChild(child);
+</code></pre>
+<ul>
+<li>
+<p><code>child</code>节点将会作为<code>parent</code>节点的最后一个子节点</p>
+</li>
+<li>
+<p><code>appendChild</code>这个方法很简单，但是还有有一点需要注意：如果被添加的节点是一个页面中存在的节点，则执行后这个节点将会添加到指定位置，其原本所在的位置将移除该节点，也就是说不会同时存在两个该节点在页面上，相当于把这个节点移动到另一个地方</p>
+</li>
+</ul>
+<pre><code class="language-js">&lt;div id=&quot;child&quot;&gt;
+    要被添加的节点
+&lt;/div&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;div id=&quot;parent&quot;&gt;
+    要移动的位置
+&lt;/div&gt;		
+&lt;input id=&quot;btnMove&quot; type=&quot;button&quot; value=&quot;移动节点&quot; /&gt;
+
+document.getElementById(&quot;btnMove&quot;).onclick = function(){
+	var child = document.getElementById(&quot;child&quot;);
+	document.getElementById(&quot;parent&quot;).appendChild(child);
+}
+
+</code></pre>
+<ul>
+<li>这段代码主要是获取页面上的<code>child</code>节点，然后添加到指定位置，可以看到原本的<code>child</code>节点被移动到<code>parent</code>中了。<br>
+这里还有一个要注意的点：如果<code>child</code>绑定了事件，被移动时，它依然绑定着该事件</li>
+</ul>
+<h2 id="2insertbefore">2.insertBefore</h2>
+<hr>
+<ul>
+<li><code>insertBefore</code>用来添加一个节点到一个参照节点之前，用法如下</li>
+</ul>
+<pre><code class="language-javascript">
+parentNode.insertBefore(newNode,refNode);
+</code></pre>
+<ul>
+<li><code>parentNode</code>表示新节点被添加后的父节点</li>
+<li><code>newNode</code>表示要添加的节点</li>
+<li><code>refNode</code>表示参照节点，新节点会添加到这个节点之前</li>
+</ul>
+<pre><code class="language-js">&lt;div id=&quot;parent&quot;&gt;
+    父节点
+    &lt;div id=&quot;child&quot;&gt;				
+        子元素
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;input type=&quot;button&quot; id=&quot;insertNode&quot; value=&quot;插入节点&quot; /&gt;
+
+var parent = document.getElementById(&quot;parent&quot;);
+var child = document.getElementById(&quot;child&quot;);
+document.getElementById(&quot;insertNode&quot;).onclick = function(){
+	var newNode = document.createElement(&quot;div&quot;);
+	newNode.textContent = &quot;新节点&quot;
+	parent.insertBefore(newNode,child);
+}
+</code></pre>
+<ul>
+<li>
+<p>这段代码创建了一个新节点，然后添加到<code>child</code>节点之前</p>
+</li>
+<li>
+<p>和<code>appendChild</code>一样，如果插入的节点是页面上的节点，则会移动该节点到指定位置，并且保留其绑定的事件。</p>
+</li>
+<li>
+<p><strong>关于第二个参数参照节点还有几个注意的地方：</strong></p>
+<ul>
+<li><code>refNode</code>是必传的，如果不传该参数会报错</li>
+<li>如果<code>refNode</code>是<code>undefined</code>或<code>null</code>，则<code>insertBefore</code>会将节点添加到子元素的末尾</li>
+</ul>
+</li>
+</ul>
+<h2 id="3removechild">3.removeChild</h2>
+<hr>
+<ul>
+<li><code>removeChild</code>顾名思义，就是删除指定的子节点并返回，用法如下</li>
+</ul>
+<pre><code class="language-javascript">
+var deletedChild = parent.removeChild(node);
+
+</code></pre>
+<ul>
+<li>
+<p><code>deletedChild</code>指向被删除节点的引用，它等于<code>node</code>，被删除的节点仍然存在于内存中，可以对其进行下一步操作。</p>
+</li>
+<li>
+<p><strong>注意</strong>：如果被删除的节点不是其子节点，则程序将会报错。我们可以通过下面的方式来确保可以删除：</p>
+</li>
+</ul>
+<pre><code class="language-javascript">if(node.parentNode){
+    node.parentNode.removeChild(node);
+}
+</code></pre>
+<ul>
+<li>通过节点自己获取节点的父节点，然后将自身删除</li>
+</ul>
+<h2 id="4replacechild">4.replaceChild</h2>
+<hr>
+<ul>
+<li><code>replaceChild</code>用于使用一个节点替换另一个节点，用法如下</li>
+</ul>
+<pre><code class="language-javascript">
+parent.replaceChild(newChild,oldChild);
+
+</code></pre>
+<ul>
+<li><code>newChild</code>是替换的节点，可以是新的节点，也可以是页面上的节点，如果是页面上的节点，则其将被转移到新的位置</li>
+<li><code>oldChild</code>是被替换的节点</li>
+</ul>
+<h2 id="5页面修改型api总结">5.页面修改型API总结</h2>
+<hr>
+<ul>
+<li>页面修改型api主要是这四个接口，<strong>要注意几个特点</strong>：
+<ul>
+<li>不管是新增还是替换节点，如果新增或替换的节点是原本存在页面上的，则其原来位置的节点将被移除，也就是说同一个节点不能存在于页面的多个位置</li>
+<li>节点本身绑定的事件会不会消失，会一直保留着</li>
+</ul>
+</li>
+</ul>
+<h1 id="五-节点查询型api">五、节点查询型API</h1>
+<h2 id="1documentgetelementbyid">1.document.getElementById</h2>
+<hr>
+<ul>
+<li>
+<p>这个接口很简单，根据元素<code>id</code>返回元素，返回值是<code>Element</code>类型，如果不存在该元素，则返回<code>null</code></p>
+</li>
+<li>
+<p><strong>使用这个接口有几点要注意：</strong></p>
+<ul>
+<li>元素的<code>Id</code>是大小写敏感的，一定要写对元素的<code>id</code></li>
+<li><code>HTML</code>文档中可能存在多个<code>id</code>相同的元素，则返回第一个元素</li>
+<li>只从文档中进行搜索元素，如果创建了一个元素并指定<code>id</code>，但并没有添加到文档中，则这个元素是不会被查找到的</li>
+</ul>
+</li>
+</ul>
+<h2 id="2documentgetelementsbytagname">2.document.getElementsByTagName</h2>
+<hr>
+<ul>
+<li>这个接口根据元素标签名获取元素，返回一个即时的<code>HTMLCollection</code>类型，什么是即时的<code>HTMLCollection</code>类型呢？</li>
+</ul>
+<pre><code class="language-js">&lt;div&gt;div1&lt;/div&gt;
+&lt;div&gt;div2&lt;/div&gt;
+		
+&lt;input type=&quot;button&quot; value=&quot;显示数量&quot; id=&quot;btnShowCount&quot;/&gt;
+&lt;input type=&quot;button&quot; value=&quot;新增div&quot; id=&quot;btnAddDiv&quot;/&gt;	
+
+var divList = document.getElementsByTagName(&quot;div&quot;);
+document.getElementById(&quot;btnAddDiv&quot;).onclick = function(){
+	var div = document.createElement(&quot;div&quot;);
+	div.textContent =&quot;div&quot; + (divList.length+1);
+	document.body.appendChild(div);
+}
+	
+document.getElementById(&quot;btnShowCount&quot;).onclick = function(){
+        alert(divList.length);
+}
+</code></pre>
+<ul>
+<li>
+<p>这段代码中有两个按钮，一个按钮是显示<code>HTMLCollection</code>元素的个数，另一个按钮可以新增一个div标签到文档中。前面提到<code>HTMLCollcetion</code>元素是即时的表示该集合是随时变化的，也就是是文档中有几个<code>div</code>，它会随时进行变化，当我们新增一个<code>div</code>后，再访问<code>HTMLCollection</code>时，就会包含这个新增的<code>div</code></p>
+</li>
+<li>
+<p><strong>使用document.getElementsByTagName这个方法有几点要注意</strong>：</p>
+<ul>
+<li>如果要对<code>HTMLCollection</code>集合进行循环操作，最好将其长度缓存起来，因为每次循环都会去计算长度，暂时缓存起来可以提高效率</li>
+<li>如果没有存在指定的标签，该接口返回的不<code>是null</code>，而是一个空的<code>HTMLCollection</code></li>
+<li><code>“*”</code>表示所有标签</li>
+</ul>
+</li>
+</ul>
+<h2 id="3documentgetelementsbyname">3.document.getElementsByName</h2>
+<hr>
+<ul>
+<li>
+<p><code>getElementsByName</code>主要是通过指定的<code>name</code>属性来获取元素，它返回一个即时的<code>NodeList</code>对象。一般用于获取表单元素的·name·属性</p>
+</li>
+<li>
+<p><strong>使用这个接口主要要注意几点：</strong></p>
+<ul>
+<li>返回对象是一个即时的<code>NodeList</code>，它是随时变化的</li>
+<li>在<code>HTML</code>元素中，并不是所有元素都有<code>name</code>属性，比如<code>div</code>是没有<code>name</code>属性的，但是如果强制设置<code>div的</code>name`属性，它也是可以被查找到的</li>
+<li>在<code>IE</code>中，如果<code>id</code>设置成某个值，然后传入<code>getElementsByName</code>的参数值和<code>id</code>值一样，则这个元素是会被找到的，所以最好不好设置同样的值给<code>id</code>和<code>name</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="4documentgetelementsbyclassname">4.document.getElementsByClassName</h2>
+<hr>
+<ul>
+<li>这个<code>API</code>是根据元素的<code>class</code>返回一个即时的<code>HTMLCollection</code>，用法如下</li>
+</ul>
+<pre><code class="language-javascript">var elements = document.getElementsByClassName(names);
+</code></pre>
+<ul>
+<li><strong>这个接口有下面几点要注意：</strong>
+<ul>
+<li>返回结果是一个即时的<code>HTMLCollection</code>，会随时根据文档结构变化</li>
+<li><code>IE9</code>以下浏览器不支持</li>
+<li>如果要获取<code>2</code>个以上<code>classname</code>，可传入多个<code>classname</code>，每个用空格相隔，例如</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-javascript">
+var elements = document.getElementsByClassName(&quot;test1 test2&quot;);
+</code></pre>
+<h2 id="5documentqueryselector和documentqueryselectorall">5.document.querySelector和document.querySelectorAll</h2>
+<hr>
+<ul>
+<li>
+<p>这两个<code>api</code>很相似，通过<code>css</code>选择器来查找元素，注意选择器要符合<code>CSS</code>选择器的规则</p>
+</li>
+<li>
+<p>首先来介绍一下<code>document.querySelector</code></p>
+</li>
+<li>
+<p><code>document.querySelector</code>返回第一个匹配的元素，如果没有匹配的元素，则返回<code>null</code>。</p>
+</li>
+<li>
+<p><strong>注意</strong>，由于返回的是第一个匹配的元素，这个<code>api</code>使用的<code>深度优先搜索</code>来获取元素</p>
+</li>
+</ul>
+<pre><code class="language-js">&lt;div&gt;
+    &lt;div&gt;
+        &lt;span class=&quot;test&quot;&gt;第三级的span&lt;/span&gt;	
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;test&quot;&gt;			
+    同级的第二个div
+&lt;/div&gt;
+&lt;input type=&quot;button&quot; id=&quot;btnGet&quot; value=&quot;获取test元素&quot; /&gt;
+
+document.getElementById(&quot;btnGet&quot;).addEventListener(&quot;click&quot;,function(){
+	var element = document.querySelector(&quot;.test&quot;);
+	alert(element.textContent);
+})
+</code></pre>
+<ul>
+<li>
+<p>这个例子很简单，就是两个<code>class</code>都包<code>含“test”</code>的元素，一个在文档树的前面，但是它在第三级，另一个在文档树的后面，但它在第一级，通过<code>querySelector</code>获取元素时，它通过深度优先搜索，拿到文档树前面的第三级的元素</p>
+</li>
+<li>
+<p><code>document.querySelectorAll</code>的不同之处在于它返回的是所有匹配的元素，而且可以匹配多个选择符</p>
+</li>
+</ul>
+<pre><code class="language-js">&lt;div class=&quot;test&quot;&gt;
+    class为test
+&lt;/div&gt;
+&lt;div id=&quot;test&quot;&gt;
+    id为test
+&lt;/div&gt;
+&lt;input id=&quot;btnShow&quot; type=&quot;button&quot; value=&quot;显示内容&quot; /&gt;
+
+document.getElementById(&quot;btnShow&quot;).addEventListener(&quot;click&quot;,function(){
+	var elements = document.querySelectorAll(&quot;#test,.test&quot;);	
+	for(var i = 0,length = elements.length;i&lt;length;i++){
+		alert(elements[i].textContent);
+	}	
+})
+</code></pre>
+<ul>
+<li>
+<p>这段代码通过<code>querySelectorAll</code>，使用<code>id</code>选择器和<code>class</code>选择器选择了两个元素，并依次输出其内容。要注意两点：</p>
+<ul>
+<li><code>querySelectorAll</code>也是通过深度优先搜索，搜索的元素顺序和选择器的顺序无关</li>
+<li>返回的是一个非即时的<code>NodeList</code>，也就是说结果不会随着文档树的变化而变化</li>
+</ul>
+</li>
+<li>
+<p><strong>兼容性问题</strong>：<code>querySelector</code>和<code>querySelectorAll</code>在<code>ie8</code>以下的浏览器不支持</p>
+</li>
+<li>
+<p><strong>小结</strong>：</p>
+<ul>
+<li><code>document.getElementById</code>返回一个对象</li>
+<li><code>document.getElementsByName</code>和<code>document.getElementsByClasName</code>返回一个对象数组</li>
+</ul>
+</li>
+</ul>
+<h1 id="六-节点关系型api">六、节点关系型API</h1>
+<ul>
+<li>在<code>html</code>文档中的每个节点之间的关系都可以看成是家谱关系，包含父子关系，兄弟关系等等</li>
+</ul>
+<h2 id="1父关系性api">1.父关系性API</h2>
+<hr>
+<ul>
+<li><code>parentNode</code>：每个节点都有一个<code>parentNode</code>属性，它表示元素的父节点。<code>Element</code>的父节点可能是<code>Element</code>，<code>Document</code>或<code>DocumentFragment</code></li>
+<li><code>parentElement</code>：返回元素的父元素节点，与<code>parentNode</code>的区别在于，其父节点必须是一个<code>Element</code>，如果不是，则返回<code>null</code></li>
+</ul>
+<h2 id="2兄弟关系型api">2.兄弟关系型API</h2>
+<hr>
+<ul>
+<li>
+<p><code>previousSibling</code>：节点的前一个节点，如果该节点是第一个节点，则为<code>null</code>。注意有可能拿到的节点是文本节点或注释节点，与预期的不符，要进行处理一下</p>
+</li>
+<li>
+<p><code>previousElementSibling</code>：返回前一个元素节点，前一个节点必须是<code>Element</code>，注意<code>IE9</code>以下浏览器不支持</p>
+</li>
+<li>
+<p><code>nextSibling</code> <code>previousSibling</code> 存在兼容性问题</p>
+</li>
+<li>
+<p><code>nextElementSibling</code> <code>previousElementSibling</code> 推荐使用</p>
+</li>
+</ul>
+<pre><code class="language-javascript">&lt;script&gt;
+    var oUl = document.getElementById('ul1');
+
+    var firstEle = oUl.firstElementChild;
+    var lastEle = oUl.lastElementChild;
+
+    firstEle.nextElementSibling.style.background = 'red';
+    lastEle.previousElementSibling.style.background = 'green';
+
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li><code>nextSibling</code>：节点的后一个节点，如果该节点是最后一个节点，则为<code>null</code>。注意有可能拿到的节点是文本节点，与预期的不符，要进行处理一下</li>
+<li><code>nextElementSibling</code>：返回后一个元素节点，后一个节点必须是<code>Element</code>，注意<code>IE9</code>以下浏览器不支持</li>
+</ul>
+<h2 id="63-子关系型api">## 6.3 子关系型API</h2>
+<hr>
+<ul>
+<li><code>childNodes</code>：
+<ul>
+<li>返回一个即时的<code>NodeList</code>，表示元素的子节点列表，子节点可能会包含文本节点，注释节点等。<code>childNodes</code>子节点列表集合（只读属性 有兼容性问题 ）</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-html">&lt;ul id=&quot;ul1&quot;&gt;
+    &lt;li&gt;11111&lt;/li&gt;
+    &lt;li&gt;22222&lt;/li&gt;
+    &lt;li&gt;3333&lt;/li&gt;
+    &lt;li&gt;44444&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+    var oUl = document.getElementById('ul1');
+    console.log(oUl.childNodes);
+&lt;/script&gt;
+</code></pre>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-Ikzbl3oX-1607020588410)(http://7xq6al.com1.z0.glb.clouddn.com/d10.png)]</p>
+<ul>
+<li>
+<p>从截图中可以看出 这段代码中<code>ul</code>的子节点有<code>9</code>个，这说明使用<code>childNodes</code>获取的节点包括了文本节点和元素节点</p>
+</li>
+<li>
+<p><code>childNodes</code> 在低版本的<code>ie</code> 浏览器下获取的节点只包括元素节点，这就导致了兼容性问题</p>
+</li>
+<li>
+<p>如何解决兼容性？？</p>
+<ul>
+<li>根据子节点的<code>nodeType</code>属性值判断</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-javascript">for (var i=0; i&lt;oUl.childNodes.length; i++) {
+
+     if ( oUl.childNodes[i].nodeType == 1 ) {
+        oUl.childNodes[i].style.background = 'red';
+     }
+
+ }
+</code></pre>
+<ul>
+<li>
+<p><code>children</code>：</p>
+<ul>
+<li>一个即时的<code>HTMLCollection</code>，子节点都是<code>Element</code>，<code>IE9</code>以下浏览器不支持。<code>children</code>子节点列表集合（只读属性 推荐使用 ）</li>
+</ul>
+</li>
+<li>
+<p><code>children</code> 获取的子节点只包含元素节点</p>
+</li>
+</ul>
+<pre><code class="language-javascript">for (var i = 0; i&lt;oUl.children.length; i++){
+    oUl.children[i].style.background = 'red';
+}
+</code></pre>
+<ul>
+<li>
+<p><code>firstNode</code>：第一个子节点</p>
+</li>
+<li>
+<p><code>lastNode</code>：最后一个子节点</p>
+</li>
+<li>
+<p><code>firstChild</code> （firstElementChild） <code>lastChild</code>(lastElementChild) 第一个子节点 最后一个子节点</p>
+</li>
+<li>
+<p><code>firstChild</code> 、<code>lastChild</code> 和<code>childNodes</code>同样的存在兼容性问题，在低版本<code>ie</code>浏览器中只能获取到元素节点</p>
+</li>
+<li>
+<p><code>firstElementChild</code>、 <code>lastElementChild</code> 获取第一个元素子节点，最后一个元素子节点 推荐使用</p>
+</li>
+</ul>
+<pre><code class="language-javascript">var oUl = document.getElementById('ul1');
+
+//    oUl.firstChild.style.background = 'red';//标准浏览器 报错
+//    oUl.lastChild.style.background = 'red';//标准浏览器 报错
+
+oUl.firstElementChild.style.background = 'red';
+oUl.lastElementChild.style.background = 'red';
+</code></pre>
+<ul>
+<li><code>hasChildNodes</code>方法：可以用来判断是否包含子节点</li>
+</ul>
+<h1 id="七-元素属性型">七、元素属性型</h1>
+<h2 id="1setattribute">1.setAttribute</h2>
+<hr>
+<ul>
+<li><code>setAttribute</code>：它允许我们对元素属性值做出修改与<code>getAttribute</code>一样<code>setAttribute</code>也能用于元素节点</li>
+<li>通过<code>setAttribute</code>对文档做出修改后，在通过浏览器的查看源码选项看到的任然是改变之前的属性值，也就是说<code>setAttribue</code>做出的修改，不会反应到文档本身的源码里</li>
+<li><code>setAttribute</code>优势在于可以修改文档中的任何一个属性</li>
+</ul>
+<pre><code class="language-javascript">
+element.setAttribute(name, value);
+</code></pre>
+<ul>
+<li>其中<code>name</code>是特性名，<code>value</code>是特性值。如果元素不包含该特性，则会创建该特性并赋值。</li>
+<li>如果元素本身包含指定的特性名为属性，则可以访问属性进行赋值，比如下面两条代码是等价</li>
+</ul>
+<pre><code class="language-javascript">
+element.setAttribute(&quot;id&quot;,&quot;test&quot;);
+
+element.id = &quot;test&quot;;
+</code></pre>
+<ul>
+<li>
+<p><strong>非DOM的解决方案</strong></p>
+<ul>
+<li>其实不用<code>setAttribute</code>也可以改变元素的属性</li>
+<li><code>setAttribute</code>方法是第一级<code>DOM</code>的组成部分，它可以设计任何元素节点的任意属性。在第1级<code>DOM</code>出现之前，你可以通过另外一种办法设置大部分元素的属性</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-javascript">element.value = &quot;the new value&quot;;
+</code></pre>
+<p>与下面语句等价</p>
+<pre><code class="language-javascript">element.setAttribute(&quot;value&quot;,&quot;the new value&quot;);
+</code></pre>
+<h2 id="2getattribute">2.getAttribute</h2>
+<hr>
+<ul>
+<li><code>getAttribute</code>返回指定的特性名相应的特性值，如果不存在，则返回<code>null</code>或空字符串。</li>
+<li><code>getAttribute</code>不属性<code>doucment</code>对象，不能通过<code>document</code>对象调用，只能通过元素节点对象调用</li>
+<li>例如可以与<code>getElementsByTagName</code>方法合用，获取每个<code>p</code>的<code>title</code>属性</li>
+</ul>
+<pre><code class="language-javascript">var paras = document.getElementsByTagName(&quot;p&quot;);
+for(var i=0;i&lt;para.lenght;i++){
+    alert(paras.getAttrtitube(&quot;title&quot;));
+}
+</code></pre>
+<h1 id="表格">表格</h1>
+<h1 id="样式操作">样式操作</h1>
+<h1 id="大小和便宜">大小和便宜</h1>
+<p>参考文章：FE- interview</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[个人制作的一些开源小项目]]></title>
+        <id>https://www.siriuszht.info/post/ge-ren-zhi-zuo-de-yi-xie-kai-yuan-xiao-xiang-mu/</id>
+        <link href="https://www.siriuszht.info/post/ge-ren-zhi-zuo-de-yi-xie-kai-yuan-xiao-xiang-mu/">
+        </link>
+        <updated>2021-01-14T08:35:25.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="1用户信息及验证码自动填充插件2019年学校计算机技能大赛第一名">1.用户信息及验证码自动填充插件（2019年学校计算机技能大赛第一名）</h1>
+<p>相关链接：<a href="chrome-cha-jian-kai-fa-zuo-pin-yong-hu-xin-xi-ji-yan-zheng-ma-zi-dong-tian-chong-cha-jian">【Chrome插件开发作品】用户信息及验证码自动填充插件</a></p>
+<h1 id="2">2.</h1>
+<h1 id="3">3.</h1>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【Chrome插件开发作品】用户信息及验证码自动填充插件]]></title>
+        <id>https://www.siriuszht.info/post/chrome-cha-jian-kai-fa-zuo-pin-yong-hu-xin-xi-ji-yan-zheng-ma-zi-dong-tian-chong-cha-jian/</id>
+        <link href="https://www.siriuszht.info/post/chrome-cha-jian-kai-fa-zuo-pin-yong-hu-xin-xi-ji-yan-zheng-ma-zi-dong-tian-chong-cha-jian/">
+        </link>
+        <updated>2021-01-14T08:27:35.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://github.com/SiriusZHT/Chrome-extention-NeverMind/">GitHub链接</a><br>
+<ul class="markdownIt-TOC">
+<li><a href="#%E4%BD%9C%E5%93%81%E6%BC%94%E7%A4%BA">作品演示</a></li>
+</ul>
+</p>
+<h1 id="作品演示">作品演示</h1>
+<p><img src="https://img-blog.csdnimg.cn/20191205164715836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164739866.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164745652.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/2019120516475364.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164758560.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164804520.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164811556.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164817723.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/2019120516482099.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164828100.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20191220122308235.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164830134.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164841798.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164846486.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164849939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164851323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164901405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164907679.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164908123.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164917345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164919903.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191205164924927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191220122321994.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191220122328346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191220122332627.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"><img src="https://img-blog.csdnimg.cn/20191220122337690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY5ODMyOA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【JavaScript】最最详细的正则表达式总结]]></title>
+        <id>https://www.siriuszht.info/post/javascript-zui-zui-xiang-xi-de-zheng-ze-biao-da-shi-zong-jie/</id>
+        <link href="https://www.siriuszht.info/post/javascript-zui-zui-xiang-xi-de-zheng-ze-biao-da-shi-zong-jie/">
+        </link>
+        <updated>2021-01-14T07:30:01.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>之前在刷leetcode的时候发现有很多问题都是通过正则表达式来解决的，所以有必要在对其进行总结，本文参考<a href="https://www.cnblogs.com/wenruo/p/10612437.html">这篇文章</a><br>
+那么我们开始吧<br>
+<ul class="markdownIt-TOC">
+<li><a href="#%E5%88%9B%E5%BB%BA%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">创建正则表达式</a>
+<ul>
+<li><a href="#1%E7%9B%B4%E6%8E%A5%E9%87%8F%E8%AF%AD%E6%B3%95%E5%88%9B%E5%BB%BA">1.直接量语法创建</a></li>
+<li><a href="#2%E5%AF%B9%E8%B1%A1%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA">2.对象构造函数创建</a></li>
+</ul>
+</li>
+<li><a href="#%E7%9B%B4%E6%8E%A5%E9%87%8F%E5%AD%97%E7%AC%A6">直接量字符</a></li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E7%B1%BB">字符类</a></li>
+<li><a href="#%E9%87%8D%E5%A4%8D">重复</a>
+<ul>
+<li><a href="#%E8%B4%AA%E5%A9%AA%E5%92%8C%E9%9D%9E%E8%B4%AA%E5%A9%AA%E7%9A%84%E9%87%8D%E5%A4%8D">贪婪和非贪婪的重复</a></li>
+</ul>
+</li>
+<li><a href="#%E9%80%89%E6%8B%A9-%E5%88%86%E7%BB%84%E5%92%8C%E5%BC%95%E7%94%A8">选择、分组和引用</a>
+<ul>
+<li><a href="#%E9%80%89%E6%8B%A9">选择</a></li>
+<li><a href="#%E5%88%86%E7%BB%84">分组</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8">引用</a>
+<ul>
+<li><a href="#%E5%85%B7%E5%90%8D%E5%BC%95%E7%94%A8">具名引用</a></li>
+<li><a href="#%E5%BF%BD%E7%95%A5%E5%BC%95%E7%94%A8">忽略引用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E6%8C%87%E5%AE%9A%E5%8C%B9%E9%85%8D%E4%BD%8D%E7%BD%AE%E9%94%9A%E5%85%83%E7%B4%A0">指定匹配位置（锚元素）</a>
+<ul>
+<li><a href="#%E5%85%88%E8%A1%8C%E6%96%AD%E8%A8%80">先行断言</a></li>
+<li><a href="#%E8%B4%9F%E5%90%91%E5%85%88%E8%A1%8C%E6%96%AD%E8%A8%80">负向先行断言</a></li>
+<li><a href="#%E5%90%8E%E8%A1%8C%E6%96%AD%E8%A8%80">后行断言</a></li>
+<li><a href="#%E8%B4%9F%E5%90%91%E5%90%8E%E8%A1%8C%E6%96%AD%E8%A8%80">负向后行断言</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%90%8E%E9%9D%A2%E7%9A%84%E9%80%89%E6%8B%A9%E9%A1%B9">修饰符（/后面的选择项）</a></li>
+<li><a href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8E%9F%E5%9E%8B%E6%96%B9%E6%B3%95">正则表达式对象的原型方法</a>
+<ul>
+<li><a href="#stringprototypesearchregexpsubstr">String.prototype.search(regexp|substr)</a></li>
+<li><a href="#stringprototypereplaceregexpsubstr-newsubstrfunction">String.prototype.replace(regexp|substr, newSubStr|function)</a></li>
+<li><a href="#stringprototypematchregexp">String.prototype.match(regexp)</a></li>
+<li><a href="#stringprototypesplitseparator-limit">String.prototype.split([separator[, limit]])</a></li>
+</ul>
+</li>
+<li><a href="#regexp-%E7%9A%84%E5%8E%9F%E5%9E%8B%E5%B1%9E%E6%80%A7">RegExp 的原型属性</a></li>
+<li><a href="#regexp-%E7%9A%84%E6%96%B9%E6%B3%95">RegExp 的方法</a>
+<ul>
+<li><a href="#exec">exec()</a></li>
+<li><a href="#test">test()</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">常用的正则表达式</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="创建正则表达式">创建正则表达式</h1>
+<blockquote>
+<p>正则表达式用RegExp对象表示</p>
+</blockquote>
+<h2 id="1直接量语法创建">1.直接量语法创建</h2>
+<ul>
+<li>就是我们经常看到的斜杠 “/”</li>
+</ul>
+<h2 id="2对象构造函数创建">2.对象构造函数创建</h2>
+<pre><code class="language-js">new RegExp(pattern[,flags])
+RegExp(pattern[,flags])
+</code></pre>
+<ul>
+<li>pattern可以是字符串或者正则字面量，字符串的时候要用常规的字符转义规则，必须将<code>\</code>替换成<code>\\</code><br>
+比如：<code>/\w+/</code>等价为<code>new RegExp(&quot;\\w+&quot;)</code></li>
+</ul>
+<h1 id="直接量字符">直接量字符</h1>
+<p>在正则表达式中，有一些标点符号具有特殊含义，他们是<code>：^ $ . * + ? = ! : | \ / ( ) [ ] { }</code> 如果需要在正则表达式中与这些直接量进行匹配，必须使用前缀 <code>\</code>。<code>没有“-”号</code></p>
+<h1 id="字符类">字符类</h1>
+<p>通过将直接量字符放入方括号内，可以组成字符类（character class）。一个字符类可以匹配它所包含任意 一个 字符。如 <code>[abc] 可以匹配 a，b，c 中任意一个字符</code>。注意！！！<strong>是任意一个</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20201208102959733.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<ul>
+<li>方括号内也可出现转义字符，如 [\d\s] 表示匹配任意空白符或数字。</li>
+</ul>
+<h1 id="重复">重复</h1>
+<blockquote>
+<p>当一个模式需要被多次循环匹配的时候，正则表达式提供了表示重复的正则语法。<br>
+<img src="https://img-blog.csdnimg.cn/20201208103136971.png" alt="在这里插入图片描述" loading="lazy"></p>
+</blockquote>
+<h2 id="贪婪和非贪婪的重复">贪婪和非贪婪的重复</h2>
+<p>上面所有的重复都是“贪婪的”匹配，也就是匹配尽可能多的字符。如 <code>/a+/ 匹配 'aaaa'</code> 时，它会匹配 <code>'aaaa'</code></p>
+<p>注意：正则表达式的模式匹配总会寻找字符串中第一个可能匹配的位置，这意味这 <code>/a+?b/ 匹配 'aaab'</code> 时，匹配到的是 <code>'aaab' 而不是 'ab'</code>。</p>
+<h1 id="选择-分组和引用">选择、分组和引用</h1>
+<h2 id="选择">选择</h2>
+<p>字符 | 用于分隔供选择的模式，匹配时会尝试从左到右匹配每一个分组，直到发现匹配项。如 <code>/ab|bc|cd/ 可以匹配字符串'ab'、'bc' 和 'cd'。</code></p>
+<h2 id="分组">分组</h2>
+<p>圆括号可以把单独的项组合成子表达式，以便可以像一个独立的单元用 <code>|、*、+ 或者 ?</code> 对单元内的项进行处理。</p>
+<h2 id="引用">引用</h2>
+<p>带圆括号的表达式的另一个用途是允许在同一个正则表达式的后面<strong>引用前面的子表达式</strong>。通过\后面加数字实现。\n 表示第 n 个带圆括号的子表达式。表示引用前一个表达式所匹配的文本。因为子表达式可以嵌套，所以根据子表达式左括号的位置进行计数。</p>
+<ul>
+<li>例，能匹配 1999-01-01 或 1999/01/01 的正则：<code>/\d{4}([-\/])\d{2}\1\d{2}/</code><br>
+这里<code>\1</code>对第一个出现的括号子表达式进行了引用</li>
+</ul>
+<h3 id="具名引用">具名引用</h3>
+<p>使用 <code>(?&lt;name&gt;...)</code> 的语法来为分组命名，并通过 <code>\k&lt;name&gt;</code> 在后面的正则表达式中引用。</p>
+<ul>
+<li>如例，能匹配 1999-01-01 或 1999/01/01 的正则：<code>/\d{4}(?&lt;separator&gt;[-\/])\d{2}\k&lt;separator&gt;\d{2}/</code></li>
+</ul>
+<h3 id="忽略引用">忽略引用</h3>
+<p>如果只想用圆括号来表示子表达式，而不希望生成引用，可以使用 (?😃 来进行分组。例，<code>/(?:a)(?:b)(c)/ 中 \1 将表示 (c) 所匹配的文本</code>。</p>
+<h1 id="指定匹配位置锚元素">指定匹配位置（锚元素）</h1>
+<p>正则表达式中的锚字符包括：</p>
+<ul>
+<li>^ 用来匹配字符串的开始，多行检索时匹配一行的开头。</li>
+<li>$ 用来匹配字符串的结束，多行检索时匹配一行的结尾。</li>
+<li>\b 用来匹配单词的边界，就是 \w 和 \W 之间的位置，或者 \w 和字符串的开头或结尾之间的位置。</li>
+<li>\B 匹配非单词边界的位置。</li>
+</ul>
+<p>例： <code>/\bJava\b/ 可以匹配 Java 却不匹配 JavaScript。</code></p>
+<p>任意正则表达式都可以作为锚点条件。</p>
+<h2 id="先行断言">先行断言</h2>
+<p>(?=pattern)<br>
+如 <code>/\d+(?=%)/</code> 匹配字符串 <code>'100%'</code> 中的 <code>'100'</code> 但是不匹配 <code>'100。'</code></p>
+<h2 id="负向先行断言">负向先行断言</h2>
+<p>反向匹配</p>
+<h2 id="后行断言">后行断言</h2>
+<p>(?&lt;=pattern)<br>
+如<code>/(?&lt;=\$)\d+/</code> 匹配 <code>'$100'</code> 但是不匹配 <code>'￥100'</code></p>
+<h2 id="负向后行断言">负向后行断言</h2>
+<h1 id="修饰符后面的选择项">修饰符（/后面的选择项）</h1>
+<ul>
+<li>i 执行不区分大小写的匹配。</li>
+<li>g 全局匹配。</li>
+<li>m 多行匹配模式。</li>
+<li>y “粘连”（sticky）修饰符。y修饰符的作用与g修饰符类似，也是全局匹配，后一次匹配都从上一次匹配成功的下一个位置开始。不同之处在于，g修饰符只要剩余位置中存在匹配就可，而<code>y修饰符确保匹配必须从剩余的第一个位置开始</code>，这也就是“粘连”的涵义。</li>
+<li>s 表示点（.）可以表示任意字符，不设置的话，四个字节的 UTF-16 字符和行终止符不能用 . 表示。</li>
+<li>u 开启 “Unicode 模式”，用来正确处理大于 \uFFFF 的 Unicode 字符。也就是说，会正确处理四个字节的 UTF-16 编码。</li>
+</ul>
+<p>通过 <code>RegExp.prototype.flags</code> 可以获得正则修饰符的字符串。<code>/pattern/ig.flags 返回 &quot;gi&quot;</code></p>
+<h1 id="正则表达式对象的原型方法">正则表达式对象的原型方法</h1>
+<h2 id="stringprototypesearchregexpsubstr">String.prototype.search(regexp|substr)</h2>
+<p>返回第一个和参数匹配的子串的起始位置。没有匹配子串返回 -1 。</p>
+<p>如果参数不是正则表达式，将会通过 RegExp 构造函数转换成正则表达式。它会忽略正则的修饰符 g。</p>
+<h2 id="stringprototypereplaceregexpsubstr-newsubstrfunction">String.prototype.replace(regexp|substr, newSubStr|function)</h2>
+<p>第一个参数同search，查找指定子串。如果第二个表达式是字符串，将把第一个参数匹配的子串替换为 newSubStr。如果在替换字符串中出现了 $ 加数字，replace 将用与指定的子表达式相匹配的文本来替换这些字符。</p>
+<p>例，单书名号包裹文本改为书名号。<code>'&lt;JavaScript&gt;和&lt;正则表达式&gt;'.replace(/&lt;([^_]*?)&gt;/g, '《$1》') 会得到 &quot;《JavaScript》和《正则表达式》&quot;</code></p>
+<p>使用字符串作为参数时替换字符串可以插入下面的特殊变量名：</p>
+<ul>
+<li>
+<p class='katex-block katex-error' title='ParseError: KaTeX parse error: Can&#039;t use function &#039;$&#039; in math mode at position 8:  插入一个 &quot;$̲&quot;
+'> 插入一个 &quot;$&quot;
+</p>
+</li>
+<li>`$`` 插入当前匹配的子串左边的内容。</li>
+<li>$' 插入当前匹配的子串右边的内容。</li>
+<li>$n 假如第一个参数是 RegExp对象，并且 n 是个小于100的非负整数，那么插入第 n 个括号匹配的字符串。提示：索引是从1开始</li>
+</ul>
+<p>使用函数作为第二个参数</p>
+<pre><code class="language-js">function replacer(match, p1, p2, p3, offset, string) { }
+// match        匹配的子串。
+// p1,p2, ...   假如replace()方法的第一个参数是一个RegExp 对象，则代表第n个括号匹配的字符串。
+// offset       匹配到的子字符串在原字符串中的偏移量。子串首字母下标。
+// string       被匹配的原字符串。
+</code></pre>
+<p>例，下划线命名转驼峰命名。<code>'a_simple_name'.replace(/_([a-z])/g, (m, p1) =&gt; p1.toUpperCase()) 将得到 &quot;aSimpleName&quot;。</code></p>
+<h2 id="stringprototypematchregexp">String.prototype.match(regexp)</h2>
+<p>参数 regexp 为一个正则表达式对象。如果传入一个非正则表达式对象，则会隐式地使用 new RegExp(obj) 将其转换为一个 RegExp 。</p>
+<p>如果 regexp 没有设置修饰符 g，则仅返回第一个完整匹配及其相关的捕获组（Array），返回数组第一个字符是匹配字符串，余下的元素是正则表达式中圆括号括起来的子表达式。在这种情况下，返回的项目将具有如下所述的其他属性（groups: 一个捕获组数组 或 undefined（如果没有定义命名捕获组）。index: 匹配的结果的开始位置。input: 搜索的字符串。），或者未匹配时返回 null 。</p>
+<p>如果使用 g 标志，则将返回与完整正则表达式匹配的所有结果，但不会返回捕获组，或者未匹配时返回 null 。</p>
+<pre><code class="language-js">'196.168.0.1'.match(/(\d+)(?=.|$)/) // (?=.|$) 先行匹配 匹配 . 或者字符串结尾
+// (2) [&quot;196&quot;, &quot;196&quot;, index: 0, input: &quot;196.168.0.1&quot;, groups: undefined]
+'196.168.0.1'.match(/(?&lt;num&gt;\d+)(?=.|$)/) // (?&lt;name&gt;) 具名引用 见上文
+// (2) [&quot;196&quot;, &quot;196&quot;, index: 0, input: &quot;196.168.0.1&quot;, groups: {num: &quot;196&quot;}]
+'196.168.0.1'.match(/\d+(?=.|$)/g)
+// (4) [&quot;196&quot;, &quot;168&quot;, &quot;0&quot;, &quot;1&quot;]
+</code></pre>
+<h2 id="stringprototypesplitseparator-limit">String.prototype.split([separator[, limit]])</h2>
+<p>separator 指定表示每个拆分应发生的点的字符串，可以是一个字符串或正则表达式。如果空字符串（&quot;&quot;）被用作分隔符，则字符串会在每个字符之间分割。</p>
+<p>limit 一个整数，限定返回的分割片段数量。</p>
+<p>例，<code>'张三;李四,王五|赵六'.split(/[;\|,]/) // (4) [&quot;张三&quot;, &quot;李四&quot;, &quot;王五&quot;, &quot;赵六&quot;]</code></p>
+<h1 id="regexp-的原型属性">RegExp 的原型属性</h1>
+<ul>
+<li>flags 会返回正则表达式的修饰符。</li>
+<li>表示对应修饰符是否存在的只读布尔值，global(表示是否带有修饰符 g)，ignoreCase （i），multiline（m），sticky（y），dotAll（s），unicode（u）</li>
+<li>source 只读字符串，包含正则表达式的文本。</li>
+<li>lastIndex 可读/写整数。如果带有 g 修饰符，这个属性存储在整个字符串中下一次检索的开始位置。这个属性会被 exec() 和 test() 方法用到。</li>
+</ul>
+<h1 id="regexp-的方法">RegExp 的方法</h1>
+<h2 id="exec">exec()</h2>
+<p>如果没有找到任何属性，将返回 null，如果找到匹配返回一个数组，该数组第一个元素是相匹配的字符串，余下的元素是与圆括号内的子表达式相匹配的子串。</p>
+<p>当调用 exec() 的正则表达式具有修饰符 g 时，它将把当前正则表达式对象的 lastIndex 属性设置为紧挨着匹配子串的字符位置。</p>
+<p>注意即使两次匹配的不是同一个字符串，lastIndex 还是会连续生效的。</p>
+<pre><code class="language-js">let reg = /\d+/g;
+reg.exec('25*10=250'); // [&quot;25&quot;, index: 0, input: &quot;25*10=250&quot;, groups: undefined]
+reg.lastIndex; // 2
+reg.exec('666'); // [&quot;6&quot;, index: 2, input: &quot;666&quot;, groups: undefined]
+reg.lastIndex; // 3
+</code></pre>
+<h2 id="test">test()</h2>
+<p>调用 test() 和 exec() 等价，当 exec() 返回结果不是 null，test() 返回 true，否则返回 false 。</p>
+<p>String 的方法不会用到 lastIndex 属性。</p>
+<h1 id="常用的正则表达式">常用的正则表达式</h1>
+<pre><code class="language-js">//（1）匹配 16 进制颜色值
+var color = /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})/g;
+
+//（2）匹配日期，如 yyyy-mm-dd 格式
+var date = /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+
+//（3）匹配 qq 号
+var qq = /^[1-9][0-9]{4,10}$/g;
+
+//（4）手机号码正则
+var phone = /^1[34578]\d{9}$/g;
+
+//（5）用户名正则
+var username = /^[a-zA-Z\$][a-zA-Z0-9_\$]{4,16}$/;
+
+//（6）Email正则
+var email = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+//（7）身份证号（18位）正则
+var cP = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+
+//（8）URL正则
+var urlP= /^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+
+// (9)ipv4地址正则
+var ipP = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
+// (10)//车牌号正则
+var cPattern = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+
+// (11)强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：
+var pwd = /^(?=.\d)(?=.[a-z])(?=.[A-Z]).{8,10}$/
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【Python网络编程】期末复习]]></title>
+        <id>https://www.siriuszht.info/post/pythonwangluobianchengqimofuxi/</id>
+        <link href="https://www.siriuszht.info/post/pythonwangluobianchengqimofuxi/">
+        </link>
+        <updated>2021-01-14T07:15:41.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="1进程与线程">1.进程与线程</h1>
+<p><a href="https://blog.csdn.net/ThinkWon/article/details/102021274?ops_request_misc=%25257B%252522request%25255Fid%252522%25253A%252522161035768816780262523261%252522%25252C%252522scm%252522%25253A%25252220140713.130102334..%252522%25257D&amp;request_id=161035768816780262523261&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-1-102021274.first_rank_v2_pc_rank_v29&amp;utm_term=%E8%BF%9B%E7%A8%8B%20%E5%92%8C%20%E7%BA%BF%E7%A8%8B">链接</a></p>
+<h2 id="进程">进程</h2>
+<p>一个在内存中运行的应用程序。每个进程都有自己独立的一块内存空间，一个进程可以有多个线程，比如在Windows系统中，一个运行的xx.exe就是一个进程。</p>
+<h2 id="线程">线程</h2>
+<p>进程中的一个执行任务（控制单元），负责当前进程中程序的执行。一个进程至少有一个线程，一个进程可以运行多个线程，多个线程可共享数据。</p>
+<p>与进程不同的是同类的多个线程共享进程的堆和方法区资源，但每个线程有自己的程序计数器、虚拟机栈和本地方法栈，所以系统在产生一个线程，或是在各个线程之间作切换工作时，负担要比进程小得多，也正因为如此，线程也被称为轻量级进程。</p>
+<h2 id="进程与线程的区别总结">进程与线程的区别总结</h2>
+<p>线程具有许多传统进程所具有的特征，故又称为轻型进程(Light—Weight Process)或进程元；而把传统的进程称为重型进程(Heavy—Weight Process)，它相当于只有一个线程的任务。在引入了线程的操作系统中，通常一个进程都有若干个线程，至少包含一个线程。</p>
+<p>根本区别：进程是操作系统资源分配的基本单位，而线程是处理器任务调度和执行的基本单位</p>
+<p>资源开销：每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小。</p>
+<p>包含关系：如果一个进程内有多个线程，则执行过程不是一条线的，而是多条线（线程）共同完成的；线程是进程的一部分，所以线程也被称为轻权进程或者轻量级进程。</p>
+<p>内存分配：同一进程的线程共享本进程的地址空间和资源，而进程之间的地址空间和资源是相互独立的</p>
+<p>影响关系：一个进程崩溃后，在保护模式下不会对其他进程产生影响，但是一个线程崩溃整个进程都死掉。所以多进程要比多线程健壮。</p>
+<p>执行过程：每个独立的进程有程序运行的入口、顺序执行序列和程序出口。但是线程不能独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制，两者均可并发执行</p>
+<h1 id="2tcp-udp-流程图">2.TCP UDP 流程图</h1>
+<h2 id="socket">socket</h2>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20210111220051901.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="tcp">TCP</h2>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdnimg.cn/20210111220159301.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h2 id="udp">UDP</h2>
+<figure data-type="image" tabindex="3"><img src="https://img-blog.csdnimg.cn/20210111220217645.png" alt="在这里插入图片描述" loading="lazy"></figure>
+<h1 id="3端口">3.端口</h1>
+<p>什么是端口？<br>
+在开始讲什么是端口（port）之前，我们先来聊一聊什么是 port 呢？常常在网络上听说『我的主机开了多少的 port ，会不会被入侵呀！？』或者是说『开那个 port 会比较安全？又，我的服务应该对应什么 port 呀！？』呵呵！很神奇吧！怎么一部主机上面有这么多的奇怪的 port 呢？这个 port 有什么作用呢？！</p>
+<p>由于每种网络的服务功能都不相同，因此有必要将不同的封包送给不同的服务来处理，所以啰，当你的主机同时开启了 FTP 与 WWW 服务的时候，那么别人送来的资料封包，就会依照 TCP 上面的 port 号码来给 FTP 这个服务或者是 WWW 这个服务来处理，当然就不会搞乱啰！（注：嘿嘿！有些很少接触到网络的朋友，常常会问说：『咦！为什么你的计算机同时有 FTP、WWW、E-Mail 这么多服务，但是人家传资料过来，你的计算机怎么知道如何判断？计算机真的都不会误判吗？！』现在知道为什么了吗？！对啦！就是因为 port 不同嘛！你可以这样想啦，有一天，你要去银行存钱，那个银行就可以想成是『主机』，然后，银行当然不可能只有一种业务，里头就有相当多的窗口，那么你一进大门的时候，在门口的服务人员就会问你说：『嗨！你好呀！你要做些什么事？』你跟他说：『我要存钱呀！』，服务员接着就会告诉你：『喝！那么请前往三号窗口！那边的人员会帮您服务！』这个时候你总该不会往其它的窗口跑吧？！ &quot;&quot;这些窗口就可以想成是『 port 』啰！所以啦！每一种服务都有特定的 port 在监听！您无须担心计算机会误判的问题呦！）</p>
+<p>· 每一个 TCP 联机都必须由一端(通常为 client )发起请求这个 port 通常是随机选择大于 1024 以上的 port 号来进行！其 TCP 封包会将(且只将) SYN 旗标设定起来！这是整个联机的第一个封包；</p>
+<p>· 如果另一端(通常为 Server ) 接受这个请求的话（当然啰，特殊的服务需要以特殊的 port 来进行，例如 FTP 的 port 21 ），则会向请求端送回整个联机的第二个封包！其上除了 SYN 旗标之外同时还将 ACK 旗标也设定起来，并同时时在本机端建立资源以待联机之需；</p>
+<p>· 然后，请求端获得服务端第一个响应封包之后，必须再响应对方一个确认封包，此时封包只带 ACK 旗标(事实上，后继联机中的所有封包都必须带有 ACK 旗标)；</p>
+<p>· 只有当服务端收到请求端的确认( ACK )封包(也就是整个联机的第三个封包)之后，两端的联机才能正式建立。这就是所谓的 TCP 联机的'三段式交握( Three-Way Handshake )'的原理。</p>
+<p>经过三向交握之后，呵呵！你的 client 端的 port 通常是高于 1024 的随机取得的 port 至于主机端则视当时的服务是开启哪一个 port 而定，例如 WWW 选择 80 而 FTP 则以 21 为正常的联机信道！</p>
+<p>总而言之,我们这里所说的端口，不是计算机硬件的I/O端口，而是软件形式上的概念.工具提供服务类型的不同，端口分为两种，一种是TCP端口，一种是UDP端口。计算机之间相互通信的时候，分为两种方式：一种是发送信息以后，可以确认信息是否到达，也就是有应答的方式，这种方式大多采用TCP协议；一种是发送以后就不管了，不去确认信息是否到达，这种方式大多采用UDP协议。对应这两种协议的服务提供的端口，也就分为TCP端口和UDP端口。</p>
+<p>那么，如果攻击者使用软件扫描目标计算机，得到目标计算机打开的端口，也就了解了目标计算机提供了那些服务。我们都知道，提供服务就一定有服务软件的漏洞，根据这些，攻击者可以达到对目标计算机的初步了解。如果计算机的端口打开太多，而管理者不知道，那么，有两种情况：一种是提供了服务而管理者没有注意，比如安装IIS的时候，软件就会自动增加很多服务，而管理员可能没有注意到；一种是服务器被攻击者安装木马，通过特殊的端口进行通信。这两种情况都是很危险的，说到底，就是管理员不了解服务器提供的服务，减小了系统安全系数。</p>
+<p>按端口号可分为3大类：<br>
+（1）公认端口（Well-KnownPorts）：范围从0到1023<br>
+它们紧密绑定（binding）于一些服务。通常这些端口的通讯明确表明了某种服务的协议。例如：21端口分配给FTP服务，25端口分配给SMTP（简单邮件传输协议）服务，80端口分配给HTTP服务，135端口分配给RPC（远程过程调用）服务等等。<br>
+我们在IE的地址栏里输入一个网址的时候（ 比如www.cce.com.cn）是不必指定端口号的，因为在默认情况下WWW服务的端口 号是“80”。<br>
+网络服务是可以使用其他端口号的，如果不是默认的端口号则应该在 地址栏上指定端口号，方法是在地址后面加上冒号“:”（半角），再加上端口 号。比如使用“8080”作为WWW服务的端口，则需要在地址栏里输入“www.cce.com.cn:8080”。<br>
+但是有些系统协议使用固定的端口号，它是不能被改变的，比如139 端口专门用于NetBIOS与TCP/IP之间的通信，不能手动改变。<br>
+（2）动态端口（Dynamic Ports）：范围从1024到65535<br>
+之所以称为动态端口，是因为它 一般不固定分配某种服务，而是动态分配。动态分配是指当一个系统进程或应用 程序进程需要网络通信时，它向主机申请一个端口，主机从可用的端口号中分配 一个供它使用。当这个进程关闭时，同时也就释放了所占用的端口号。<br>
+(2.1)注册端口（RegisteredPorts）：从1024到49151。它们松散地绑定于一些服务。也就是说有许多服务绑定于这些端口，这些端口同样用         于许多其它目的。例如：许多系统处理动态端口从1024左右开始。</p>
+<p>(2.2)动态和/或私有端口（Dynamicand/orPrivatePorts）：从49152到65535。理论上，不应为服务分配这些端口。实际上，机器通常从1024    起分配动态端口。但也有例外：SUN的RPC端口从32768开始。</p>
+<p>端口：21<br>
+服务：FTP<br>
+说明：FTP服务器所开放的端口，用于上传、下载。最常见的攻击者用于寻找打开anonymous的FTP服务器的方法。这些服务器带有可读写的目录。木马Doly Trojan、Fore、Invisible FTP、WebEx、WinCrash和Blade Runner所开放的端口。</p>
+<p>端口：22<br>
+服务：Ssh<br>
+说明：PcAnywhere建立的TCP和这一端口的连接可能是为了寻找ssh。这一服务有许多弱点，如果配置成特定的模式，许多使用RSAREF库的版本就会有不少的漏洞存在。</p>
+<p>端口：23<br>
+服务：Telnet<br>
+说明：远程登录，入侵者在搜索远程登录UNIX的服务。大多数情况下扫描这一端口是为了找到机器运行的操作系统。还有使用其他技术，入侵者也会找到密码。木马Tiny Telnet Server就开放这个端口。</p>
+<p>端口：25<br>
+服务：SMTP<br>
+说明：SMTP服务器所开放的端口，用于发送邮件。入侵者寻找SMTP服务器是为了传递他们的SPAM。入侵者的帐户被关闭，他们需要连接到高带宽的E-MAIL服务器上，将简单的信息传递到不同的地址。木马Antigen、Email Password Sender、Haebu Coceda、Shtrilitz Stealth、WinPC、WinSpy都开放这个端口。<br>
+端口：53<br>
+服务：Domain Name Server（DNS）<br>
+说明：DNS服务器所开放的端口，入侵者可能是试图进行区域传递（TCP），欺骗DNS（UDP）或隐藏其他的通信。因此防火墙常常过滤或记录此端口。<br>
+端口：80<br>
+服务：HTTP<br>
+说明：用于网页浏览。木马Executor开放此端口。<br>
+端口：109<br>
+服务：Post Office Protocol -Version3<br>
+说明：POP3服务器开放此端口，用于接收邮件，客户端访问服务器端的邮件服务。POP3服务有许多公认的弱点。关于用户名和密码交 换缓冲区溢出的弱点至少有20个，这意味着入侵者可以在真正登陆前进入系统。成功登陆后还有其他缓冲区溢出错误。<br>
+端口：443<br>
+服务：Https<br>
+说明：网页浏览端口，能提供加密和通过安全端口传输的另一种HTTP。<br>
+端口：993<br>
+服务：IMAP<br>
+说明：SSL（Secure Sockets layer）<br>
+端口：1433<br>
+服务：SQL<br>
+说明：Microsoft的SQL服务开放的端口。</p>
+<h1 id="4正则表达式">4.正则表达式</h1>
+<p><a href="https://blog.csdn.net/weixin_43698328/article/details/110852071">链接</a></p>
+<ul>
+<li>提取身份证：</li>
+</ul>
+<pre><code class="language-python">def person_id_extract(text):
+    person_id = re.findall(
+        r&quot;([1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx])&quot;, text)
+    per_id = &quot;&quot;
+    if person_id:
+        matrix = numpy.array(person_id)
+        for i in matrix[:, 0]:
+            per_id = per_id + ' ' + &quot;&quot;.join(tuple(i))
+    return per_id
+</code></pre>
+<h1 id="5实验板块">5.实验板块</h1>
+<h2 id="udp聊天-tcp文件下载-多线程udp聊天器-多进程拷贝文件"><a href="https://blog.csdn.net/weixin_43698328/article/details/112553738">UDP聊天、TCP文件下载、多线程UDP聊天器、多进程拷贝文件</a></h2>
+<h2 id="爬取百度贴吧-小说内容-豆瓣小说-ajax爬微博-多线程爬淘宝"><a href="https://blog.csdn.net/weixin_43698328/article/details/112553801">爬取百度贴吧、小说内容、豆瓣小说、Ajax爬微博、多线程爬淘宝</a></h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[个人博客搭建引导手册]]></title>
+        <id>https://www.siriuszht.info/post/个人博客搭建文档/</id>
+        <link href="https://www.siriuszht.info/post/个人博客搭建文档/">
+        </link>
+        <updated>2021-01-14T03:12:01.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>人人都想搭建自己的个人博客网站，这里根据踩坑经验，给出一个非常稳定简单的方法。</p>
+</blockquote>
+<p><ul class="markdownIt-TOC">
+<li><a href="#gridea%E4%BB%8B%E7%BB%8D%E5%92%8C%E6%93%8D%E4%BD%9C">Gridea介绍和操作</a></li>
+<li><a href="#%E9%80%89%E6%8B%A9%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8C%E5%9F%9F%E5%90%8D">选择服务器和域名</a></li>
+<li><a href="#%E6%90%AD%E5%BB%BA%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8">搭建后端服务器</a></li>
+</ul>
+</p>
+<h1 id="gridea介绍和操作">Gridea介绍和操作</h1>
+<ul>
+<li>Gridea是<code>基于Vue+electron构建的博客搭建桌面系统</code>，需要你去搜索Gridea官网下载，可能会很慢，<code>我最终下的是gitee的压缩包</code>（众所周知，gitee+压缩包挺快的）</li>
+<li>软件功能：</li>
+</ul>
+<ol>
+<li>直接远程连接服务器，客户端生成的本地文件保存在你的目标目录里面（自己设置），在你桌面客户端每次提交更新的时候，Git的连接方法会直接commit，而SSH会把你文件目录删了然后再重新上传。</li>
+<li>写文章用的<code>markdown</code>，所以直接在你的<code>csdn</code>上面写好了复制粘贴即可，PS.通过csdn写markdown的方式图片用的外链<code>性能更佳</code>哦；同样，你的封面图最终会影响了页面加载速度如图（因为页面渲染时css引用外链图片在下载静态资源之前（或许你的服务器有server push那更好）），所以推荐所有图片资源都用外链。</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdnimg.cn/20210121124537294.jpg" alt="在这里插入图片描述" loading="lazy"></figure>
+<ol start="3">
+<li>写了文章过后就可以加点标签，这些标签都是自定义的，<code>最终将会加在你的域名上组成URL</code>，所以如果没有域名的话，基于域名的css和相关文章、标签的URL不能正常加载。（一个girdea用户也遇到类似问题：Gridea生成HTML网页时CSS的link地址是根据域名来的,由于我填的是项目的域名,导致无法找到文件,而且在部署完成的主页内点击任何链接都会跳转到Coding的登录页面,所以导致无法正确载入文件,不只是CSS文件,应该是所有的文件都无法载入.）</li>
+<li>设置主题<br>
+你可以在Gridea官方主题网站下载主题，我用的是GitHub上一个开源主题，<a href="https://github.com/GalaxySuze/gridea-theme-space">主题链接和使用方式</a> ，PS.设置主题背景颜色有的颜色可能会渲染不成功，重新选个颜色就行。</li>
+</ol>
+<ul>
+<li>直接上图</li>
+</ul>
+<p>通过SSH配置域名、连接远程服务器，git方式点击检测连接成功就会生成git文件，成功后点击同步就能上传上去了<br>
+<img src="https://img-blog.csdnimg.cn/20210121104959718.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p>markdown写文章并自定义URL、标签、封面图<br>
+<img src="https://img-blog.csdnimg.cn/20210121105914628.png" alt="在这里插入图片描述" loading="lazy"><br>
+菜单和标签<br>
+<img src="https://img-blog.csdnimg.cn/20210121110618842.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p>主题设置<br>
+<img src="https://img-blog.csdnimg.cn/20210121111613630.png" alt="在这里插入图片描述" loading="lazy"><br>
+<img src="https://img-blog.csdnimg.cn/20210121111904586.png" alt="在这里插入图片描述" loading="lazy"></p>
+<h1 id="选择服务器和域名">选择服务器和域名</h1>
+<ul>
+<li>有关远程连接的选择，不想买服务器和域名的可以用GitHub Page / Gitee Page，但是GitHub Page很不稳定，长城防火墙你懂的，然后是同步上去要有几分钟渲染时间很烦，其次是同步上去有时候还成功不了，导致服务器一直挂。</li>
+<li>如果你还是想试一试，建议看看掘金的这篇文章<a href="https://juejin.cn/post/6875674355452346381">Gridea+GithubPages+godaddy+gitalk个人博客配置</a></li>
+<li>所以我最终选择稳定的买服务器和域名（加起来一年一共100多）</li>
+<li>作为腾讯云老顾客，我选择的是腾讯云，是学生的话有学生优惠，域名也一起买了个，但是因为境内域名要认证（周期6天），所以追求效率去了<a href="https://sg.godaddy.com/zh/offers/domains/godaddy-b?isc=gennlcn08&amp;countryview=1&amp;currencyType=CNY&amp;gclid=CjwKCAjwnef6BRAgEiwAgv8mQc7yfrZ59mrhuZLX7P0MkksaGjI8_FbM_8qeG7lLv6MkMCFBDK2OeBoCFoAQAvD_BwE&amp;gclsrc=aw.ds">Godaddy网站</a>买了一个，不用认证，强烈推荐。相关购买操作我相信你可以自己完成的。</li>
+<li>域名购买成功过后，在DNS管理中设置域名解析更改A的值为你的服务器IP和对应端口，如果服务器搭建好了，访问该域名就能跳转到相关服务器了。<br>
+<img src="https://img-blog.csdnimg.cn/20210121113021502.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ul>
+<h1 id="搭建后端服务器">搭建后端服务器</h1>
+<ul>
+<li>作为前端开发者，我更倾向于<code>nodejs+koa2</code>或者python+flask作为后端服务器。</li>
+</ul>
+<ol>
+<li>
+<p><code>用vscode的remote explorer插件通过ssh连接centos服务器</code>，就可以进行相关sftp操作啦！<br>
+<img src="https://img-blog.csdnimg.cn/20210121114425289.png" alt="在这里插入图片描述" loading="lazy"></p>
+</li>
+<li>
+<p>安装nodejs，因为centos的<code>yum install nodejs</code>会导致版本很低，并且后期node的开发不好管理包，所以通过nvm来管理。</p>
+</li>
+</ol>
+<p>clone安装包</p>
+<pre><code class="language-shell">mkdir github &amp;&amp; cd github &amp;&amp; git clone https://github.com/creationix/nvm.git 
+</code></pre>
+<p>添加环境变量</p>
+<pre><code class="language-shell">find . -name &quot;*.bashrc&quot; -print
+</code></pre>
+<p>在你找到的.bashrc文件里面通过vim添加</p>
+<pre><code class="language-shell">export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
+source ~/git/nvm/nvm.sh
+</code></pre>
+<p>其中第一行是修改nvm镜像路径到阿里，第二行才是把 nvm 添加到系统环境中去。<br>
+保存后执行指令让配置生效：</p>
+<pre><code class="language-shell">source .bashrc
+</code></pre>
+<p>通过nvm安装nodejs</p>
+<pre><code class="language-shell">nvm install node
+</code></pre>
+<p>npm如果在腾讯服务器用阿里云的镜像很慢 道理你懂的<br>
+所以设置下 腾讯云的镜像</p>
+<pre><code class="language-shell">npm config set registry http://mirrors.cloud.tencent.com/npm/
+</code></pre>
+<p>阿里云中国镜像 <code>npm config set registry https://registry.npm.taobao.org</code></p>
+<p>看看是不是 <code>npm config get registry</code></p>
+<ol start="3">
+<li>搭建koa2的后端框架</li>
+</ol>
+<pre><code class="language-shell">npm install koa-generator -g &amp;&amp; koa2 project_name
+</code></pre>
+<p>然后就能看到我们的项目目录结构<br>
+在app.js中声明静态资源文件目录<br>
+<code>app.use(require('koa-static')(__dirname + '/public/Blogs'))</code>，<br>
+<code>'/public/Blogs'</code>是你自定义的静态资源路径，通常把静态资源放到public目录里面。</p>
+<ol start="4">
+<li>配置远程仓库路径<br>
+在gridea里面设置仓库路径，也就是我们<code>koa2的静态资源的绝对路径</code>，以后就可以一键同步sftp上传资源文件了，同步过后你的静态资源路径里面的文件就和本地gridea输出文件一模一样了。</li>
+</ol>
+<blockquote>
+<p>这个时候，我们<code>npm run start</code>就能开启服务啦！<br>
+如果要配置端口，通常我们访问域名的时候是80端口，在./bin/www 里面 修改 <code>var port = normalizePort(&quot;80&quot;);</code>，但是最好还是按照www的默认端口来。请注意服务器的防火墙已经把相关端口开放了，要在腾讯云控制台看看。</p>
+</blockquote>
+<ol start="5">
+<li>koa2配置https<br>
+为什么要加https，因为首先是让访问更安全，还有之前遇到过一个问题：非https不能渲染成功，emmm，所以我们还是最好加上https吧！<br>
+首先你要去你的服务器供应商的<code>SSL证书</code>这个服务里面进行免费购买证书，我是通过腾讯云手动SSH的方式配置的证书，也就是按照腾讯云的<code>SSL证书</code>步骤，选择手动SSH，<code>然后手动添加生成的TXT值到你的域名解析里面</code>，你可以看腾讯云的SSL证书的操作手册，我的DNS域名解析是下图这样的你可以参考。<br>
+<img src="https://img-blog.csdnimg.cn/20210121121821255.png" alt="在这里插入图片描述" loading="lazy"></li>
+</ol>
+<p>域名解析配置好了就可以等待证书签发，签发成功过后就可以下载证书了。<br>
+<img src="https://img-blog.csdnimg.cn/20210121122247157.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p>这是我的证书目录，直接拖到vs code里面上传至服务器，之后要用到curt和key<br>
+<img src="https://img-blog.csdnimg.cn/20210121123038886.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p>现在在后端的app.js文件里面，添加https配置</p>
+<pre><code class="language-javascript">/**
+ * HTTPS配置
+ */
+// 引入https 以及 koa-ssl
+const https = require('https')
+const sslify = require('koa-sslify').default
+app.use(sslify())  // 使用ssl
+</code></pre>
+<p>同时还要<code>npm install https koa-sslify</code><br>
+然后在后端项目目录./bin/www 里面添加</p>
+<pre><code class="language-javascript">// SSL options
+var options = {
+  key: fs.readFileSync(path.join(__dirname, '../ssl/Nginx/xxx.key')),  //ssl文件路径   第一步下载下来的证书文件
+  cert: fs.readFileSync(path.join(__dirname, '../ssl/Nginx/xxx.crt'))  //ssl文件路径		第一步下载下来的证书文件
+};
+
+
+// 创建https 服务
+var httpsServer = https.createServer(options, app.callback());
+httpsServer.listen(443);   // 默认监听443
+httpsServer.on('error', onError);
+httpsServer.on('listening', onListening);
+</code></pre>
+<ol start="6">
+<li>守护进程pm2 防止断连<br>
+<a href="https://www.cnblogs.com/minutes/p/11020130.html">相关配置参考链接</a></li>
+</ol>
+<pre><code class="language-shell">npm install -g pm2
+</code></pre>
+<p>此时你的package.json里面的scrips有<code>&quot;prd&quot;: &quot;pm2 start bin/www&quot;,</code>命令<br>
+执行<code>pm2 start bin/www</code>，就能开启https的守护进程服务啦！</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://www.siriuszht.info/post/hello-gridea/</id>
+        <link href="https://www.siriuszht.info/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
